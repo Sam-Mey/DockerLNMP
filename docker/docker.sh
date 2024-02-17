@@ -138,5 +138,3 @@ echo_color "green" "安装完成"
 echo_color "green" "赋予docker-compose执行权限"
 chmod +x /usr/local/bin/docker-compose
 echo_color "green" "完成"
-
-
