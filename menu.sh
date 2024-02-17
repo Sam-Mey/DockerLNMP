@@ -19,7 +19,7 @@ cd "$(dirname "${BASH_SOURCE[0]}")" || exit
 # echo "Current working directory after cd: $(pwd)"
 
 # 引入配置
-. /docker_lnmp/config.sh
+. /DockerLNMP/config.sh
 
 # # 打印调试信息
 # echo "SCRIPT_DIR: $SCRIPT_DIR"

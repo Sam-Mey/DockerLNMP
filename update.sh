@@ -6,10 +6,10 @@
 current_dir=$(pwd)
 
 # 克隆远程仓库
-git clone https://github.com/Sam-Mey/docker_lnmp.git tmp_docker_lnmp
+git clone https://github.com/Sam-Mey/DockerLNMP.git tmp_DockerLNMP
 
-# 切换到/docker_lnmp目录
-cd /docker_lnmp || exit
+# 切换到/DockerLNMP目录
+cd /DockerLNMP || exit
 
 # 拉取远程仓库的最新变更
 git fetch origin
@@ -21,16 +21,16 @@ git reset --hard origin/master
 find . -name "*.sh" -exec chmod +x {} \;
 
 # 创建符号链接，使得 'dlnmp' 命令指向 menu.sh
-ln -sf "/docker_lnmp/menu.sh" "/usr/local/bin/dlnmp"
+ln -sf "/DockerLNMP/menu.sh" "/usr/local/bin/dlnmp"
 
 # 用最新内容替换当前目录的文件
-rsync -av --exclude='.git' tmp_docker_lnmp/ .
+rsync -av --exclude='.git' tmp_DockerLNMP/ .
 
 # 切换回原始目录
 cd "$current_dir" || exit
 
 # 清理临时目录
-rm -rf tmp_docker_lnmp
+rm -rf tmp_DockerLNMP
 
 # 运行 'dlnmp' 命令（确保 'dlnmp' 在这一步之前已经设置好）
 dlnmp

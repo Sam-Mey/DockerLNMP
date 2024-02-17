@@ -17,7 +17,7 @@ def replace_in_file(file_path, old_str, new_str):
 def replace_in_all_files(directory, old_str, new_str):
     for root, dirs, files in os.walk(directory):
         for file in files:
-            if file.endswith((".txt", ".sh")):  # 可以根据实际需要添加其他文件扩展名
+            if file.endswith((".txt", ".md", ".sh")):  # 可以根据实际需要添加其他文件扩展名
                 file_path = os.path.join(root, file)
                 replace_in_file(file_path, old_str, new_str)
 
@@ -25,9 +25,9 @@ def replace_in_all_files(directory, old_str, new_str):
 if __name__ == "__main__":
     current_directory = os.getcwd()
     # 将：
-    old_string = "docker-lnmp"
+    old_string = "docker_lnmp"
     # 替换为：
-    new_string = "docker_lnmp"
+    new_string = "DockerLNMP"
 
     replace_in_all_files(current_directory, old_string, new_string)
 

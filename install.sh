@@ -10,13 +10,13 @@ root_need(){
 cd /
 
 # Clone the repository
-git clone https://github.com/Sam-Mey/docker_lnmp.git
+git clone https://github.com/Sam-Mey/DockerLNMP.git
 
 # Find all .sh files and chmod +x
-find /docker_lnmp -name "*.sh" -exec chmod +x {} \;
+find /DockerLNMP -name "*.sh" -exec chmod +x {} \;
 
 # Create a symbolic link for menu.sh
-ln -s "/docker_lnmp/menu.sh" "/usr/local/bin/dlnmp"
+ln -s "/DockerLNMP/menu.sh" "/usr/local/bin/dlnmp"
 
 # Check if it's not being run for removal
 if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then

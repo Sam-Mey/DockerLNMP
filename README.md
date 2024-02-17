@@ -1,4 +1,4 @@
-# docker_lnmp
+# DockerLNMP
 
 ## 系统要求
 
@@ -15,7 +15,7 @@
 ## 安装
 
 ```bash
-curl -O https://raw.githubusercontent.com/Sam-Mey/docker_lnmp/main/install.sh
+curl -O https://raw.githubusercontent.com/Sam-Mey/DockerLNMP/main/install.sh
 chmod +x install.sh
 ./install.sh
 ```
