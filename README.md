@@ -20,7 +20,7 @@ chmod +x install.sh
 ./install.sh
 ```
 
-## PHP 默认模块列表；如需自定义，请修改 `install_php_modules.sh` 脚本
+## PHP 默认模块列表；如需自定义，请修改 `install_php_extensions.sh` 脚本
 
 ```bash
 PHP_MODULES=(
