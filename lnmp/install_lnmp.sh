@@ -14,13 +14,13 @@ RESET=$(tput sgr0)
 
 # Check if Docker is installed
 if ! command -v docker &> /dev/null; then
-    echo -e "${RED}Docker not installed! Please install Docker first...${RESET}"
+    echo -e "${BOLD}${RED}Docker not installed! Please install Docker first...${RESET}"
     exit 1
 fi
 
 # Check if Docker Compose is installed
 if ! command -v docker-compose &> /dev/null; then
-    echo -e "${RED}Docker Compose not installed! Please install Docker Compose first...${RESET}"
+    echo -e "${BOLD}${RED}Docker Compose not installed! Please install Docker Compose first...${RESET}"
     exit 1
 fi
 
@@ -30,7 +30,7 @@ containers=("nginx" "database" "PHP" "redis" "phpmyadmin")
 # Check if Docker containers are created
 for container in "${containers[@]}"; do
     if ! docker ps -a --format '{{.Names}}' | grep -q "$container"; then
-        echo -e "${RED}Container $container not found. Make sure all LNMP containers are created...${RESET}"
+        echo -e "${BOLD}${RED}Container $container not found. Make sure all LNMP containers are created...${RESET}"
         exit 1
     fi
 done
@@ -39,7 +39,7 @@ done
 database_containers=("MySQL" "MariaDB" "MongoDB" "sqlite")
 for db_container in "${database_containers[@]}"; do
     if ! docker ps -a --format '{{.Names}}' | grep -q "$db_container"; then
-        echo -e "${RED}Database container $db_container not found. Make sure all LNMP database containers are created...${RESET}"
+        echo -e "${BOLD}${RED}Database container $db_container not found. Make sure all LNMP database containers are created...${RESET}"
         exit 1
     fi
 done

@@ -45,6 +45,7 @@ function show_service_menu() {
 # Handle user choice
 function service_options() {
     read -p "${BOLD}${BLUE} 请输入选项编号: ${RESET}" choice
+    echo "DEBUG: User input is $choice"  # debug
     case $choice in
         1)
             clear

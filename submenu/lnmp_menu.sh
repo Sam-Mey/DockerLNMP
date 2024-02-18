@@ -53,10 +53,11 @@ function show_lnmp_menu() {
 # Handle user choice
 function lnmp_options() {
     read -p "${BOLD}${BLUE} 请输入选项编号: ${RESET}" choice
+    echo "DEBUG: User input is $choice"  # debug
     case $choice in
         1)
             clear
-            echo -e "${BOLD}${YELLOW} 当前所有容器启动状态： ${RESET}"
+            echo -e "${BOLD}${YELLOW} 安装 LNMP 环境... ${RESET}"
             "$INSTALL_LNMP_SCRIPT_PATH"
         ;;
         2)
