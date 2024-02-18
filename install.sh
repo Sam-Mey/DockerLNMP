@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# root权限
+# root user
 root_need(){
     if [[ $EUID -ne 0 ]]; then
         echo -e "\033[31m 错误:该脚本必须以 root 身份运行! \033[0m" 1>&2

@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 # 1.安装 Docker
 centos='
 yum install -y yum-utils

@@ -5,7 +5,7 @@ clear
 # 进入脚本所在目录
 cd "$(dirname "$0")"
 
-# 引入配置
+# Include configuration
 . /DockerLNMP/config.sh
 
 BOLD=$(tput bold)
@@ -45,7 +45,7 @@ function show_nginx_menu() {
 # Handle user choice
 function nginx_options() {
     read -p "${BOLD}${BLUE} 请输入选项编号:${RESET}" choice
-    echo "DEBUG: User input is $choice"  # 添加调试信息
+    echo "DEBUG: User input is $choice"  # debug
     case $choice in
         1)
             clear
@@ -70,7 +70,7 @@ function nginx_options() {
         M|m)
             clear
             echo "${BOLD}${RED} 谢谢使用，再见！ ${RESET}"
-            exit 0  # 退出脚本
+            exit 0
         ;;
         *)
             clear
@@ -79,7 +79,6 @@ function nginx_options() {
     esac
 }
 
-# 主循环
 while true; do
     show_nginx_menu
     nginx_options

@@ -2,13 +2,9 @@
 
 clear
 
-# 进入脚本所在目录
 cd "$(dirname "$0")"
 
-# # 保存脚本所在目录的路径
-# SCRIPT_DIR="/DockerLNMP/lnmp" # 换为实际名称
-
-# 引入配置
+# Include configuration
 . "/DockerLNMP/config.sh"
 
 # Define colors and styles using tput
@@ -35,9 +31,8 @@ options=(
     "${BOLD}${PURPLE} 返回上一级 [Docker LNMP] ${RESET}\n"
 )
 
-# Show 替换为实际名称
 function show_service_menu() {
-    echo -e "${BOLD}${PURPLE}======== 服务 ========${RESET}\n" # 换为实际名称
+    echo -e "${BOLD}${PURPLE}======== 服务 ========${RESET}\n"
     for i in "${!options[@]}"; do
         if [[ $i -eq $(( ${#options[@]} - 1 )) ]]; then
             echo -e "${BOLD}${RED}m. ${options[$i]}${RESET}"  # q 返回选项
@@ -87,12 +82,11 @@ function service_options() {
     esac
 }
 
-# 主循环
 while true; do
-    show_service_menu # 换为实际名称
+    show_service_menu
     service_options
     if [[ $choice == "m" || $choice == "M" ]]; then
-        break  # 退出循环，返回到调用的主菜单
+        break
     fi
 done
 

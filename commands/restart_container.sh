@@ -1,16 +1,20 @@
 #!/bin/bash
 
+# get container_ID
+database_container_id=$(docker ps -qf "name=mysql" -f "name=mariadb" -f "name=mongodb" -f "name=sqlite")
 
-docker restart build-nginx-1
-docker restart build-mariadb-1
-docker restart build-php-1
-docker restart build-redis-1
-docker restart build-phpmyadmin-1
+nginx_container_id=$(docker ps -qf "name=nginx")
+php_container_id=$(docker ps -qf "name=php")
+phpmyadmin_container_id=$(docker ps -qf "name=phpmyadmin")
+redis_container_id=$(docker ps -qf "name=redis")
 
-docker logs build-nginx-1
-docker logs build-mariadb-1
-docker logs build-php-1
-docker logs build-redis-1
-docker logs build-phpmyadmin-1
+# run restart
+for container_id in "$database_container_id"; do
+    docker restart "$container_id"
+done
 
+for container_id in "$nginx_container_id" "$php_container_id" "$phpmyadmin_container_id" "$redis_container_id"; do
+    docker restart "$container_id"
+done
 
+echo "容器已重启完成。"

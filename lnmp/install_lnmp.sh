@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 cd /
 git clone https://github.com/Sam-Mey/DockerLNMP.git
 cp -r root/certs /DockerLNMP/www/server/nginx

@@ -5,10 +5,7 @@ clear
 # 进入脚本所在目录
 cd "$(dirname "$0")"
 
-# # 保存脚本所在目录的路径
-# SCRIPT_DIR="/DockerLNMP/lnmp" # 换为实际名称
-
-# 引入配置
+# Include configuration
 . "/DockerLNMP/config.sh"
 
 # Define colors and styles using tput
@@ -40,9 +37,8 @@ options=(
     "${BOLD}${GRAY} 卸载 Docker LNMP 环境 ${RESET}\n"
 )
 
-# Show 替换为实际名称
 function show_lnmp_menu() {
-    echo -e "${BOLD}${BLUE}============ Docker LNMP 选项 ============${RESET}\n" # 换为实际名称
+    echo -e "${BOLD}${BLUE}============ Docker LNMP 选项 ============${RESET}\n"
     for i in "${!options[@]}"; do
         if [[ $i -eq $(( ${#options[@]} - 2 )) ]]; then
             echo -e "${BOLD}${RED}m. ${options[$i]}${RESET}"  # m 返回选项
@@ -59,7 +55,6 @@ function lnmp_options() {
     read -p "${BOLD}${BLUE} 请输入选项编号: ${RESET}" choice
     case $choice in
         1)
-            # 检查是否安装了 Docker
             if command -v docker &> /dev/null; then
                 clear
                 echo -e "${BOLD}${YELLOW} Docker 已安装，正在创建 LNMP 环境... ${RESET}"
@@ -68,7 +63,6 @@ function lnmp_options() {
                 echo -e "${RED}未安装 Docker !!! 即将为您安装 Docker...${RESET}"
                 "$DOCKER_SCRIPT_PATH"
                 
-                # 再次检查 Docker 是否安装成功
                 if command -v docker &> /dev/null; then
                     echo -e "${BOLD}${YELLOW} Docker 安装成功，将创建 LNMP 环境... ${RESET}"
                     "$INSTALL_LNMP_SCRIPT_PATH"
@@ -109,14 +103,11 @@ function lnmp_options() {
         ;;
         R|r)
             clear
-            # 提示消息，默认值为 N
             read -p "$(echo -e "${BOLD}${YELLOW}此操作仅卸载所有创建的容器、镜像、网络，并不是卸载 Docker! 是否确认卸载整个 LNMP 环境? (默认为N) | [N/y]: ${RESET}")" -i "N" answer
-            # 根据用户的选择执行相应操作
             if [ "${answer,,}" = "y" ]; then
                 echo -e "${BOLD}${RED} 正在卸载 LNMP 环境... ${RESET}"
-                # 执行卸载 整个 LNMP 环境 的操作，可以调用相应的脚本或命令
                 "$UNINSTALL_LNMP_SCRIPT_PATH"
-                exit 0  # 执行完成退出脚本
+                exit 0
             else
                 echo -e "${BOLD}${YELLOW} 已取消卸载. ${RESET}"
             fi
@@ -128,12 +119,11 @@ function lnmp_options() {
     esac
 }
 
-# 主循环
 while true; do
-    show_lnmp_menu # 换为实际名称
+    show_lnmp_menu
     lnmp_options
     if [[ $choice == "m" || $choice == "M" ]]; then
-        break  # 退出循环，返回到调用的主菜单
+        break
     fi
 done
 

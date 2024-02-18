@@ -1,7 +1,5 @@
 #!/bin/bash
 
-
-# 进入根目录
 cd /
 
 docker stop $(docker ps -aq)

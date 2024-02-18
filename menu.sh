@@ -1,13 +1,13 @@
 #!/bin/bash
 
-# set -x # 调试信息
+# # setdebug
+# set -x
 
 clear
 
-# 设置版本号
 VERSION="v1.5.0"
 
-# 打印当前工作目录
+# # debug working pwd
 # echo "Current working directory: $(pwd)"
 
 # 设置脚本所在目录为当前工作目录
@@ -16,7 +16,7 @@ cd "$(dirname "${BASH_SOURCE[0]}")" || exit
 # 打印执行 cd 命令（改变当前工作目录）之后，输出改变后的当前工作目录
 # echo "Current working directory after cd: $(pwd)"
 
-# config
+# Include configuration
 . /DockerLNMP/config.sh
 
 # Define colors and styles using tput
@@ -74,7 +74,7 @@ function show_menu() {
 # Handle user choice
 function menu_options() {
     read -p "${BOLD}${BLUE} 请输入选项编号:${RESET}" choice
-    # echo "DEBUG: User input is $choice"  # debug
+    echo "DEBUG: User input is $choice"  # debug
     case $choice in
         1)
             clear
@@ -118,4 +118,3 @@ while true; do
     show_menu
     menu_options
 done
-
