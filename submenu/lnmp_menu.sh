@@ -31,9 +31,10 @@ options=(
     
     "${BOLD}${PURPLE} 服务 >> ${RESET}\n"
     
-    "${BOLD}${PURPLE} 重启 ${RESET}\n"
+    "${BOLD}${PURPLE} 重启 LNMP 服务 ${RESET}\n"
+    "${BOLD}${PURPLE} 停止 LNMP 服务 ${RESET}\n"
     
-    "${BOLD}${RED} 主菜单 ${RESET}"
+    "${BOLD}${RED} 返回主菜单 ${RESET}"
     "${BOLD}${GRAY} 卸载 Docker LNMP 环境 ${RESET}\n"
 )
 
@@ -41,9 +42,9 @@ function show_lnmp_menu() {
     echo -e "${BOLD}${BLUE}============ Docker LNMP 首页 ============${RESET}\n"
     for i in "${!options[@]}"; do
         if [[ $i -eq $(( ${#options[@]} - 2 )) ]]; then
-            echo -e "${BOLD}${RED}m. ${options[$i]}${RESET}"  # m 返回选项
+            echo -e "${BOLD}${RED}b. ${options[$i]}${RESET}"  # b 返回
             elif [[ $i -eq $(( ${#options[@]} -1 )) ]]; then
-            echo -e "${BOLD}${GRAY}r. ${options[$i]}${RESET}"  # r 卸载选项
+            echo -e "${BOLD}${GRAY}d. ${options[$i]}${RESET}"  # d 卸载
         else
             echo -e "${BOLD}${PURPLE}$((i+1)). ${options[$i]}${RESET}"
         fi
@@ -86,11 +87,11 @@ function lnmp_options() {
             echo -e "${BOLD}${YELLOW} 正在重启所有容器... ${RESET}"
             "$RESTART_SERVER_SCRIPT_PATH"
         ;;
-        M|m)
+        B|b)
             clear
             echo "${BOLD}${RED} 主菜单！ ${RESET}"
         ;;
-        R|r)
+        D|d)
             clear
             read -p "$(echo -e "${BOLD}${YELLOW}此操作仅卸载所有创建的容器、镜像、网络，并不是卸载 Docker! 是否确认卸载整个 LNMP 环境? (默认为N) | [N/y]: ${RESET}")" -i "N" answer
             if [ "${answer,,}" = "y" ]; then
