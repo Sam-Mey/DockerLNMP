@@ -9,9 +9,9 @@ database_container_id=$(docker ps -qf "name=mysql" -f "name=mariadb" -f "name=mo
 container_id=$(docker ps -qf "name=nginx"  -f "name=php" -f "name=phpmyadmin" -f "name=redis")
 
 # run restart
-for container_id in $database_container_id; do
+for database_container_id in $database_container_id; do
     if docker inspect "$container_id" > /dev/null 2>&1; then
-        docker restart "$container_id"
+        docker restart "$database_container_id"
     else
         echo "容器 $container_id 不存在或无法访问。"
     fi
