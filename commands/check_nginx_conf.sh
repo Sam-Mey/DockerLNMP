@@ -1,7 +1,11 @@
 #!/bin/bash
 
+# 找到nginx容器的ID
+nginx_container_id=$(docker ps -qf "name=nginx")
 
-docker exec -it server-nginx-1 /bin/bash -c "cat /etc/nginx/conf.d/default.conf"
-
-
-
+if [ -n "$nginx_container_id" ]; then
+    # 进入nginx容器并查找default.conf
+    docker exec -it "$nginx_container_id" find / -name "default.conf" -print -quit
+else
+    echo "Nginx container not found."
+fi

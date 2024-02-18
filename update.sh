@@ -1,7 +1,5 @@
 #!/bin/bash
 
-
-
 # 保存当前目录
 current_dir=$(pwd)
 
@@ -35,7 +33,7 @@ rm -rf tmp_DockerLNMP
 # 运行 'dlnmp' 命令（确保 'dlnmp' 在这一步之前已经设置好）
 dlnmp
 
-# 打印调试信息
+# debug
 # echo "Cloning the repository..."
 # echo "Fetching the latest changes..."
 # echo "Resetting local repository to the latest commit..."

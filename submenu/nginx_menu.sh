@@ -50,7 +50,7 @@ function nginx_options() {
         1)
             clear
             echo -e "${BOLD}${YELLOW} Nginx 配置文件： ${RESET}"
-            "$XXXXXXX"
+            "$CHECK_NGINX_CONF_SCRIPT_PATH"
         ;;
         2)
             clear
