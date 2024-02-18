@@ -28,10 +28,10 @@ RESET=$(tput sgr0)
 options=(
     "${BOLD}${PURPLE} 安装 Docker LNMP 环境 ${RESET}\n"
     
+    "${BOLD}${PURPLE} 启动状态 ${RESET}"
     "${BOLD}${PURPLE} 运行状态 ${RESET}"
     "${BOLD}${PURPLE} 镜像网络 ${RESET}\n"
     
-    "${BOLD}${PURPLE} 日志 >> ${RESET}"
     "${BOLD}${PURPLE} 服务 >> ${RESET}\n"
     
     "${BOLD}${PURPLE} 重启 ${RESET}\n"
@@ -79,24 +79,24 @@ function handle_choice() {
         ;;
         2)
             clear
-            echo -e "${BOLD}${YELLOW} 所有容器服务状态 ${RESET}"
+            echo -e "${BOLD}${YELLOW} 容器启动状态... ${RESET}"
             docker ps -a
         ;;
         3)
             clear
-            echo -e "${BOLD}${YELLOW} 所有 Docker Image 与 网络 ${RESET}"
-            docker images
-            docker network ls
+            echo -e "${BOLD}${YELLOW} 运行状态... ${RESET}"
+            docker-compose up
         ;;
         4)
             clear
-            echo -e "${BOLD}${YELLOW} 容器日志列表 ${RESET}"
-            "$CONTAINER_LOGS_MENU_SCRIPT_PATH"
+            echo -e "${BOLD}${YELLOW} 系统镜像/网络列表 ${RESET}"
+            docker images
+            docker network ls
         ;;
         5)
             clear
-            echo -e "${BOLD}${YELLOW} 容器菜单入口 ${RESET}"
-            "$CONTAINER_MENU_SCRIPT_PATH"
+            echo -e "${BOLD}${YELLOW} 服务列表: ${RESET}"
+            "$SERVICE_MENU_SCRIPT_PATH"
         ;;
         6)
             clear
