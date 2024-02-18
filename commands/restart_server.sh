@@ -36,6 +36,9 @@
 
 #!/bin/bash
 
+# 设置脚本所在目录为当前工作目录
+cd "$(dirname "${BASH_SOURCE[0]}")" || exit
+
 # Include configuration
 . /DockerLNMP/config.sh
 
