@@ -31,6 +31,8 @@ options=(
     "${BOLD}${PURPLE} PHP >> ${RESET}"
     "${BOLD}${PURPLE} Redis >> ${RESET}"
     "${BOLD}${PURPLE} phpMyAdmin >> ${RESET}\n"
+    
+    "${BOLD}${PURPLE} 返回上一级 [Docker LNMP] ${RESET}"
 )
 
 # Show 替换为实际名称
@@ -76,7 +78,7 @@ function handle_choice() {
         ;;
         M|m)
             clear
-            echo -e "${BOLD}${YELLOW} 返回上一级 ${RESET}"
+            echo -e "${BOLD}${YELLOW} Docker LNMP ${RESET}"
         ;;
         *)
             clear
