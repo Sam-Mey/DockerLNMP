@@ -29,7 +29,7 @@ options=(
     "${BOLD}${PURPLE} 安装 Docker LNMP 环境 ${RESET}\n"
     
     "${BOLD}${PURPLE} 启动状态 ${RESET}"
-    "${BOLD}${PURPLE} 运行状态 ${RESET}"
+    "${BOLD}${PURPLE} 运行日志 ${RESET}"
     "${BOLD}${PURPLE} 镜像网络 ${RESET}\n"
     
     "${BOLD}${PURPLE} 服务 >> ${RESET}\n"
@@ -79,17 +79,17 @@ function lnmp_options() {
         ;;
         2)
             clear
-            echo -e "${BOLD}${YELLOW} 容器启动状态... ${RESET}"
+            echo -e "${BOLD}${YELLOW} 当前所有容器启动状态： ${RESET}"
             docker ps -a
         ;;
         3)
             clear
-            echo -e "${BOLD}${YELLOW} 运行状态... ${RESET}"
-            cd /DockerLNMP/lnmp/build && docker-compose up
+            echo -e "${BOLD}${YELLOW} 当前所有容器运行日志： ${RESET}"
+            cd /DockerLNMP/lnmp/build && docker-compose logs
         ;;
         4)
             clear
-            echo -e "${BOLD}${YELLOW} 系统镜像/网络列表 ${RESET}"
+            echo -e "${BOLD}${YELLOW} 系统镜像/网络列表： ${RESET}"
             docker images
             docker network ls
         ;;
