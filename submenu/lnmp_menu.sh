@@ -95,7 +95,7 @@ function lnmp_options() {
         6)
             clear
             echo -e "${BOLD}${YELLOW} 正在加载所有容器... ${RESET}"
-            "$RESTART_CONTAINER_SCRIPT_PATH"
+            "$RESTART_SERVER_SCRIPT_PATH"
         ;;
         M|m)
             clear
