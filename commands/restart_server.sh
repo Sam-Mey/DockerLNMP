@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Include configuration
+. /DockerLNMP/config.sh
+
 # get container_ID
 database_container_id=$(docker ps -qf "name=mysql" -f "name=mariadb" -f "name=mongodb" -f "name=sqlite")
 

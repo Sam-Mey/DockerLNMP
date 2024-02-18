@@ -1,15 +1,12 @@
 #!/bin/bash
 
+# Include configuration
+. /DockerLNMP/config.sh
+
 BOLD=$(tput bold)
 RED=$(tput setaf 1)
 CYAN=$(tput setaf 6)
 RESET=$(tput sgr0)
-
-# 定义数据库容器
-database_containers=("mysql" "mariadb" "mongodb" "sqlite")
-
-# 定义 LNMP 容器
-containers=("nginx" "${database_containers[@]}" "php" "redis" "phpmyadmin")
 
 # 检查系统是否安装 Docker
 if ! command -v docker || ! command -v docker-compose &> /dev/null; then
