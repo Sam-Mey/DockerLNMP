@@ -10,10 +10,10 @@ git clone https://github.com/Sam-Mey/DockerLNMP.git tmp_DockerLNMP
 cd /DockerLNMP || exit
 
 # 拉取远程仓库的最新变更
-git fetch origin
+git fetch --quiet origin
 
 # 重置本地仓库到最新的提交
-git reset --hard origin/master
+git reset --quiet --hard origin/main
 
 # 将所有 .sh 文件添加执行权限
 find . -name "*.sh" -exec chmod +x {} \;
@@ -42,5 +42,3 @@ dlnmp
 # echo "Replacing current content with updated content..."
 # echo "Cleaning up temporary directory..."
 # echo "Running 'et' command..."
-
-
