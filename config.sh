@@ -1,25 +1,25 @@
 #!/bin/bash
 
-# 切换到脚本所在目录
+# enter script pwd
 cd "$(dirname "${BASH_SOURCE[0]}")"
 
-# 保存脚本所在目录的路径
+# script working path
 SCRIPT_DIR="/DockerLNMP"
 
 DDSYSTEM_SCRIPT_PATH="$SCRIPT_DIR/docker/DDSystem.sh"
-ADD_SITE_SCRIPT_PATH="$SCRIPT_DIR/commands/add_site.sh"
+ADD_SITE_SCRIPT_PATH="$SCRIPT_DIR/commands/website/add_site.sh"
 CENTOS_SCRIPT_PATH="$SCRIPT_DIR/docker/centos.sh"
-CHECK_NGINX_CONF_SCRIPT_PATH="$SCRIPT_DIR/commands/check_nginx_conf.sh"
-CHECK_PHP_INSTALLED_EXTENSIONS_SCRIPT_PATH="$SCRIPT_DIR/commands/check_php_Installed_extensions.sh"
-CHECK_PHP_DISABLE_FUNCTIONS_SCRIPT_PATH="$SCRIPT_DIR/commands/check_php_disable_functions.sh"
-CHECK_PHP_ENTERED_EXTENSIONS_SCRIPT_PATH="$SCRIPT_DIR/commands/check_php_entered_extensions.sh"
+CHECK_NGINX_CONF_SCRIPT_PATH="$SCRIPT_DIR/commands/nginx/check_nginx_conf.sh"
+CHECK_PHP_INSTALLED_EXTENSIONS_SCRIPT_PATH="$SCRIPT_DIR/commands/php/check_php_Installed_extensions.sh"
+CHECK_PHP_DISABLE_FUNCTIONS_SCRIPT_PATH="$SCRIPT_DIR/commands/php/check_php_disable_functions.sh"
+CHECK_PHP_ENTERED_EXTENSIONS_SCRIPT_PATH="$SCRIPT_DIR/commands/php/check_php_entered_extensions.sh"
 COMPOSE_SCRIPT_PATH="$SCRIPT_DIR/docker/compose.sh"
 CONFIG_SCRIPT_PATH="$SCRIPT_DIR/config.sh"
 DOCKER_SCRIPT_PATH="$SCRIPT_DIR/docker/docker.sh"
 GD_LIB_SCRIPT_PATH="$SCRIPT_DIR/www/server/php/lib/gd_lib.sh"
 INSTALL_SCRIPT_PATH="$SCRIPT_DIR/install.sh"
 INSTALL_LNMP_SCRIPT_PATH="$SCRIPT_DIR/lnmp/install_lnmp.sh"
-INSTALL_PHP_EXTENSIONS_SCRIPT_PATH="$SCRIPT_DIR/commands/install_php_extensions.sh"
+INSTALL_PHP_EXTENSIONS_SCRIPT_PATH="$SCRIPT_DIR/commands/php/install_php_extensions.sh"
 INSTALL_PHP_MODULES_SCRIPT_PATH="$SCRIPT_DIR/www/server/php/lib/extension/install_php_modules.sh"
 LNMP_MENU_SCRIPT_PATH="$SCRIPT_DIR/submenu/lnmp_menu.sh"
 MENU_SCRIPT_PATH="$SCRIPT_DIR/menu.sh"
@@ -28,11 +28,11 @@ NGINX_SERVER_SCRIPT_PATH="$SCRIPT_DIR/submenu/nginx_server.sh"
 PHP_SERVER_SCRIPT_PATH="$SCRIPT_DIR/submenu/php_server.sh"
 PHPMYADMIN_SERVER_SCRIPT_PATH="$SCRIPT_DIR/submenu/phpmyadmin_server.sh"
 REDIS_SERVER_SCRIPT_PATH="$SCRIPT_DIR/submenu/redis_server.sh"
-RESTART_DATABASE_SCRIPT_PATH="$SCRIPT_DIR/commands/restart_database.sh"
-RESTART_NGINX_SCRIPT_PATH="$SCRIPT_DIR/commands/restart_nginx.sh"
-RESTART_PHP_SCRIPT_PATH="$SCRIPT_DIR/commands/restart_php.sh"
-RESTART_PHPMYADMIN_SCRIPT_PATH="$SCRIPT_DIR/commands/restart_phpmyadmin.sh"
-RESTART_REDIS_SCRIPT_PATH="$SCRIPT_DIR/commands/restart_redis.sh"
+RESTART_DATABASE_SCRIPT_PATH="$SCRIPT_DIR/commands/database/restart_database.sh"
+RESTART_NGINX_SCRIPT_PATH="$SCRIPT_DIR/commands/nginx/restart_nginx.sh"
+RESTART_PHP_SCRIPT_PATH="$SCRIPT_DIR/commands/php/restart_php.sh"
+RESTART_PHPMYADMIN_SCRIPT_PATH="$SCRIPT_DIR/commands/phpmyadmin/restart_phpmyadmin.sh"
+RESTART_REDIS_SCRIPT_PATH="$SCRIPT_DIR/commands/redis/restart_redis.sh"
 RESTART_SERVER_SCRIPT_PATH="$SCRIPT_DIR/commands/restart_server.sh"
 SERVICE_MENU_SCRIPT_PATH="$SCRIPT_DIR/submenu/service_menu.sh"
 TEMPLATE_SCRIPT_PATH="$SCRIPT_DIR/template.sh"
@@ -42,9 +42,9 @@ UNINSTALL_SCRIPT_PATH="$SCRIPT_DIR/uninstall.sh"
 UNINSTALL_LNMP_SCRIPT_PATH="$SCRIPT_DIR/lnmp/uninstall_lnmp.sh"
 UPDATE_SCRIPT_PATH="$SCRIPT_DIR/update.sh"
 
-# 其他配置...
+# other config...
 
-# 路径调试信息
+# # path debug
 # echo "DDSYSTEM_SCRIPT_PATH: $DDSYSTEM_SCRIPT_PATH"
 # echo "ADD_SITE_SCRIPT_PATH: $ADD_SITE_SCRIPT_PATH"
 # echo "CENTOS_SCRIPT_PATH: $CENTOS_SCRIPT_PATH"
