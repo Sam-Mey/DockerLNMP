@@ -75,7 +75,7 @@ services:
 
   redis:
     build:
-      context: ./redis
+      context: ./docker-redis/7.2/debian
       dockerfile: Dockerfile
     ports:
       - "6379:6379"
