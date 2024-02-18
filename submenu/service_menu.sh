@@ -39,7 +39,7 @@ options=(
 function show_service_menu() {
     echo -e "${BOLD}${PURPLE}======== 服务 ========${RESET}\n" # 换为实际名称
     for i in "${!options[@]}"; do
-        if [[ $i -eq $(( ${#options[@]} - 3 )) ]]; then
+        if [[ $i -eq $(( ${#options[@]} - 1 )) ]]; then
             echo -e "${BOLD}${RED}m. ${options[$i]}${RESET}"  # q 返回选项
         else
             echo -e "${BOLD}${BLUE}$((i+1)). ${options[$i]}${RESET}"
