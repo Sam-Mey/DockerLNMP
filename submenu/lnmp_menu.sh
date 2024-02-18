@@ -55,7 +55,7 @@ function show_lnmp_menu() {
 }
 
 # Handle user choice
-function handle_choice() {
+function lnmp_options() {
     read -p "${BOLD}${BLUE} 请输入选项编号: ${RESET}" choice
     case $choice in
         1)
@@ -131,7 +131,7 @@ function handle_choice() {
 # 主循环
 while true; do
     show_lnmp_menu # 换为实际名称
-    handle_choice
+    lnmp_options
     if [[ $choice == "m" || $choice == "M" ]]; then
         break  # 退出循环，返回到调用的主菜单
     fi

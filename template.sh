@@ -20,22 +20,21 @@ WHITE=$(tput setaf 7)
 
 RESET=$(tput sgr0)
 
-# Define nginx options
+# Define menu options
 options=(
-    "${BOLD}${BLUE} 查看配置文件 ${RESET}"
-    "${BOLD}${RED} 查看日志 ${RESET}"
-    "${BOLD}${GREEN} 运行状态 ${RESET}"
-    "${BOLD}${GRAY} 重新加载 ${RESET}\n"
+    "${BOLD}${BLUE}  ${RESET}\n"
     
-    "${BOLD}${GRAY} 返回上一级 ${RESET}\n"
+    "${BOLD}${RED}  ${RESET}"
+    "${BOLD}${GREEN}  ${RESET}"
+    "${BOLD}${GRAY}  ${RESET}"
 )
 
-# Show nginx
-function nginx_nginx() {
-    echo -e "${BOLD}${BLUE}————————————————————————————————— Nginx 容器服务 ———————————————————————————————————${RESET}\n"
+# Show menu
+function show_menu() {
+    echo -e "${BOLD}${BLUE}—————————————————————————————————  ———————————————————————————————————${RESET}\n"
     for i in "${!options[@]}"; do
         if [[ $i -eq $(( ${#options[@]} - 1 )) ]]; then
-            echo -e "${BOLD}${RED}m. ${options[$i]}${RESET}"  # m 返回选项
+            echo -e "${BOLD}${RED}m. ${options[$i]}${RESET}"  # q 返回选项
         else
             echo -e "${BOLD}${BLUE}$((i+1)). ${options[$i]}${RESET}"
         fi
@@ -43,31 +42,21 @@ function nginx_nginx() {
 }
 
 # Handle user choice
-function nginx_options() {
+function menu_options() {
     read -p "${BOLD}${BLUE} 请输入选项编号:${RESET}" choice
     echo "DEBUG: User input is $choice"  # 添加调试信息
     case $choice in
         1)
             clear
-            echo -e "${BOLD}${YELLOW} XXX ${RESET}"
+            echo -e "${BOLD}${YELLOW} Docker LNMP 选项 ${RESET}"
             "$XXXXXXX"
         ;;
         2)
             clear
-            echo -e "${BOLD}${YELLOW} XXX ${RESET}"
+            echo -e "${BOLD}${YELLOW} WebSite ${RESET}"
             "$XXXXXX"
         ;;
-        3)
-            clear
-            echo -e "${BOLD}${YELLOW} XXX ${RESET}"
-            "$XXXXXX"
-        ;;
-        4)
-            clear
-            echo -e "${BOLD}${YELLOW} XXX ${RESET}"
-            "$XXXXXX"
-        ;;
-        M|m)
+        Q|q)
             clear
             echo "${BOLD}${RED} 谢谢使用，再见！ ${RESET}"
             exit 0  # 退出脚本
@@ -81,6 +70,6 @@ function nginx_options() {
 
 # 主循环
 while true; do
-    show_nginx
-    nginx_options
+    show_menu
+    menu_options
 done

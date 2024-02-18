@@ -1,7 +1,5 @@
 #!/bin/bash
 
-
-
 # set -x # 调试信息
 
 clear
@@ -87,6 +85,11 @@ function menu_options() {
             clear
             echo -e "${BOLD}${YELLOW} Docker LNMP 选项 ${RESET}"
             "$LNMP_MENU_SCRIPT_PATH"
+        ;;
+        2)
+            clear
+            echo -e "${BOLD}${YELLOW} WebSite ${RESET}"
+            "$XXXXXX"
         ;;
         Q|q)
             clear
