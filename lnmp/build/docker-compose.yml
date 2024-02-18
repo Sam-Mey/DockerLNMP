@@ -11,7 +11,12 @@ services:
       NGINX_VERSION: 1.25.4
       NJS_VERSION: 0.8.3
       PKG_RELEASE: 1~bookworm
-    command: ["nginx", "-g", "daemon off;"]
+    command: [ "nginx", "-g", "daemon off;" ]
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "1M"
+        max-file: "1"
     depends_on:
       - php
     networks:
@@ -21,6 +26,11 @@ services:
     build:
       context: ./docker-php/8.3/bookworm/fpm
       dockerfile: Dockerfile
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "1M"
+        max-file: "1"
     depends_on:
       - mariadb
       - redis
@@ -46,6 +56,11 @@ services:
       interval: 5s
       timeout: 60s
       retries: 10
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "1M"
+        max-file: "1"
     networks:
       - lnmp-network
 
@@ -57,7 +72,7 @@ services:
       PMA_HOST: mariadb
       UPLOAD_LIMIT: 123M
       MAX_EXECUTION_TIME: 125
-      HIDE_PHP_VERSION: 1  
+      HIDE_PHP_VERSION: 1
     ports:
       - "8080:80"
     volumes:
@@ -68,6 +83,11 @@ services:
       interval: 3s
       timeout: 60s
       retries: 10
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "1M"
+        max-file: "1"
     networks:
       - lnmp-network
     depends_on:
@@ -77,8 +97,13 @@ services:
     build:
       context: ./docker-redis/7.2/debian
       dockerfile: Dockerfile
-    ports:
-      - "6379:6379"
+    # ports:
+    #   - "6379:6379"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "1M"
+        max-file: "1"
     networks:
       - lnmp-network
 

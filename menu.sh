@@ -49,9 +49,9 @@ echo -e "\033[96m	| |/ /\ \_/ / \__/\| |\  \| |___| |\ \      | |____| |\  || | 
 echo -e "\033[96m	|___/  \___/ \____/\_| \_/\____/\_| \_\     |_____/\_| \_/\_|  |_/\_|    	\033[0m"
 echo -e "\033[96m                                                                               \033[0m"
 echo -e "${BOLD}${YELLOW} 温馨提示：${RESET}\n"
-echo -e "${BOLD}${YELLOW}       此脚本仅支持 Ubuntu Debian arm64 系统; ${RESET}"
-echo -e "${BOLD}${YELLOW}       amd 及其他系统敬请期待... ${RESET}"
-echo -e "${BOLD}${YELLOW}       安装完成后，再次使用只需键入 'dlnmp' 即可呼出脚本 ${RESET}\n"
+echo -e "${BOLD}${YELLOW}       目前环境仅支持 Ubuntu Debian arm64 系统; ${RESET}"
+echo -e "${BOLD}${YELLOW}       amd 及其他系待测试... ${RESET}"
+echo -e "${BOLD}${YELLOW}       安装完成后，再次使用命令行键入 'dlnmp' 调出菜单。 ${RESET}\n"
 
 # Define menu options
 options=(
