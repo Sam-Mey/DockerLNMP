@@ -28,15 +28,15 @@ RESET=$(tput sgr0)
 options=(
     "${BOLD}${PURPLE} 安装 Docker LNMP 环境 ${RESET}\n"
     
-    "${BOLD}${PURPLE} 查看容器/状态 ${RESET}"
-    "${BOLD}${PURPLE} 查看镜像/网络 ${RESET}\n"
+    "${BOLD}${PURPLE} 运行状态 ${RESET}"
+    "${BOLD}${PURPLE} 镜像网络 ${RESET}\n"
     
-    "${BOLD}${PURPLE} 容器/日志 >> ${RESET}"
-    "${BOLD}${PURPLE} 容器/内部 >> ${RESET}\n"
+    "${BOLD}${PURPLE} 日志 >> ${RESET}"
+    "${BOLD}${PURPLE} 服务 >> ${RESET}\n"
     
-    "${BOLD}${PURPLE} 重启所有容器 ${RESET}\n"
+    "${BOLD}${PURPLE} 重启 ${RESET}\n"
     
-    "${BOLD}${RED} 返回主菜单 ${RESET}"
+    "${BOLD}${RED} 主菜单 ${RESET}"
     "${BOLD}${GRAY} 卸载 Docker LNMP 环境 ${RESET}\n"
 )
 

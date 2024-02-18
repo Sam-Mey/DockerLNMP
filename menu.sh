@@ -79,7 +79,7 @@ function show_menu() {
 }
 
 # Handle user choice
-function handle_choice() {
+function menu_options() {
     read -p "${BOLD}${BLUE} 请输入选项编号:${RESET}" choice
     echo "DEBUG: User input is $choice"  # 添加调试信息
     case $choice in
@@ -122,6 +122,6 @@ function handle_choice() {
 # 主循环
 while true; do
     show_menu
-    handle_choice
+    menu_options
 done
 
