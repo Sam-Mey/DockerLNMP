@@ -5,8 +5,8 @@ clear
 # 进入脚本所在目录
 cd "$(dirname "$0")"
 
-# 保存脚本所在目录的路径
-SCRIPT_DIR="/DockerLNMP/lnmp" # 换为实际名称
+# # 保存脚本所在目录的路径
+# SCRIPT_DIR="/DockerLNMP/lnmp" # 换为实际名称
 
 # 引入配置
 . "/DockerLNMP/config.sh"

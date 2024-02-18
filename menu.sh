@@ -16,14 +16,8 @@ cd "$(dirname "${BASH_SOURCE[0]}")" || exit
 # 打印执行 cd 命令（改变当前工作目录）之后，输出改变后的当前工作目录
 # echo "Current working directory after cd: $(pwd)"
 
-# 引入配置
+# config
 . /DockerLNMP/config.sh
-
-# # 打印调试信息
-# echo "SCRIPT_DIR: $SCRIPT_DIR"
-# echo "MENU_SCRIPT_PATH: $MENU_SCRIPT_PATH"
-# echo "WEBSITE_MENU_SCRIPT_PATH: $WEBSITE_MENU_SCRIPT_PATH"
-# echo "ACME_SCRIPT_PATH: $ACME_SCRIPT_PATH"
 
 # Define colors and styles using tput
 BOLD=$(tput bold)
@@ -80,7 +74,7 @@ function show_menu() {
 # Handle user choice
 function menu_options() {
     read -p "${BOLD}${BLUE} 请输入选项编号:${RESET}" choice
-    echo "DEBUG: User input is $choice"  # 添加调试信息
+    # echo "DEBUG: User input is $choice"  # debug
     case $choice in
         1)
             clear
@@ -95,7 +89,7 @@ function menu_options() {
         Q|q)
             clear
             echo "${BOLD}${RED} 谢谢使用，再见！ ${RESET}"
-            exit 0  # 退出脚本
+            exit 0
         ;;
         U|u)
             clear
@@ -104,14 +98,11 @@ function menu_options() {
         ;;
         R|r)
             clear
-            # 打印提示消息，并设置默认值为N
             read -p "$(echo -e "${BOLD}${YELLOW}是否确认卸载脚本? (默认为N) | [N/y]: ${RESET}")" -i "N" answer
-            # 根据用户的选择执行相应操作
             if [ "${answer,,}" = "y" ]; then
                 echo -e "${BOLD}${RED} 正在卸载脚本... ${RESET}"
-                # 执行卸载 脚本 的操作，可以调用相应的脚本或命令
                 "$UNINSTALL_SCRIPT_PATH"
-                exit 0  # 退出脚本
+                exit 0
             else
                 echo -e "${BOLD}${YELLOW} 脚本卸载已取消. ${RESET}"
             fi
@@ -123,7 +114,6 @@ function menu_options() {
     esac
 }
 
-# 主循环
 while true; do
     show_menu
     menu_options

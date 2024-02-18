@@ -23,11 +23,11 @@ RESET=$(tput sgr0)
 # Define nginx options
 options=(
     "${BOLD}${BLUE} 查看配置文件 ${RESET}"
-    "${BOLD}${RED} 查看日志 ${RESET}"
-    "${BOLD}${GREEN} 运行状态 ${RESET}"
-    "${BOLD}${GRAY} 重新加载 ${RESET}\n"
+    "${BOLD}${BLUE} 查看日志 ${RESET}"
+    "${BOLD}${BLUE} 运行状态 ${RESET}"
+    "${BOLD}${BLUE} 重新加载 ${RESET}\n"
     
-    "${BOLD}${GRAY} 返回上一级 ${RESET}\n"
+    "${BOLD}${RED} 返回上一级 ${RESET}\n"
 )
 
 # Show nginx
