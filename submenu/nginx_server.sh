@@ -64,8 +64,8 @@ function nginx_options() {
         ;;
         4)
             clear
-            echo -e "${BOLD}${YELLOW} XXX ${RESET}"
-            "$XXXXXX"
+            echo -e "${BOLD}${YELLOW} 正在加载 Nginx... ${RESET}"
+            "$RESTART_NGINX_SCRIPT_PATH"
         ;;
         M|m)
             clear
