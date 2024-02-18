@@ -6,10 +6,10 @@ clear
 cd "$(dirname "$0")"
 
 # 保存脚本所在目录的路径
-SCRIPT_DIR="/docker_lnmp/lnmp" # 换为实际名称
+SCRIPT_DIR="/DockerLNMP/lnmp" # 换为实际名称
 
 # 引入配置
-. "/docker_lnmp/config.sh"
+. "/DockerLNMP/config.sh"
 
 # Define colors and styles using tput
 BOLD=$(tput bold)
@@ -38,9 +38,9 @@ options=(
     "${BOLD}${PURPLE} 查看容器 PHP 已启用扩展 ${RESET}\n"
     
     
-    "${BOLD}${RED} 上一级菜单 [docker_lnmp] ${RESET}"
-    "${BOLD}${GREEN} 安装 PHP 模组 [docker_lnmp] ${RESET}"
-    "${BOLD}${GREEN} 启用 OPcache 与 JIT 扩展 [docker_lnmp] ${RESET}"
+    "${BOLD}${RED} 上一级菜单 [DockerLNMP] ${RESET}"
+    "${BOLD}${GREEN} 安装 PHP 模组 [DockerLNMP] ${RESET}"
+    "${BOLD}${GREEN} 启用 OPcache 与 JIT 扩展 [DockerLNMP] ${RESET}"
     
 )
 
@@ -111,7 +111,7 @@ function handle_choice() {
         ;;
         M|m)
             clear
-            echo "${BOLD}${RED} [docker_lnmp] 菜单 ${RESET}"
+            echo "${BOLD}${RED} [DockerLNMP] 菜单 ${RESET}"
         ;;
         I|i)
             clear

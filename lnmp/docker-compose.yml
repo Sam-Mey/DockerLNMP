@@ -1,0 +1,86 @@
+version: "3"
+
+services:
+  nginx:
+    build:
+      context: ./docker-nginx/mainline/debian
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    environment:
+      NGINX_VERSION: 1.25.4
+      NJS_VERSION: 0.8.3
+      PKG_RELEASE: 1~bookworm
+    command: ["nginx", "-g", "daemon off;"]
+    depends_on:
+      - php
+    networks:
+      - lnmp-network
+
+  php:
+    build:
+      context: ./docker-php/8.3/bookworm/fpm
+      dockerfile: Dockerfile
+    depends_on:
+      - mariadb
+      - redis
+    networks:
+      - lnmp-network
+
+  mariadb:
+    build:
+      context: ./docker-mariadb/11.2
+      dockerfile: Dockerfile
+    environment:
+      MARIADB_ROOT_PASSWORD: "${TESTSUITE_PASSWORD:-my-secret-pw}"
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "mariadb-admin",
+          "ping",
+          "-uroot",
+          "-p${TESTSUITE_PASSWORD:-my-secret-pw}"
+        ]
+      start_period: 10s
+      interval: 5s
+      timeout: 60s
+      retries: 10
+    networks:
+      - lnmp-network
+
+  phpmyadmin:
+    build:
+      context: ./docker-phpmyadmin/docker/apache
+      dockerfile: Dockerfile
+    environment:
+      PMA_HOST: mariadb
+      UPLOAD_LIMIT: 123M
+      MAX_EXECUTION_TIME: 125
+      HIDE_PHP_VERSION: 1  
+    ports:
+      - "8080:80"
+    volumes:
+      - ../config.user.inc.php:/etc/phpmyadmin/config.user.inc.php:ro
+    healthcheck:
+      test: [ "CMD", "curl", "-Ss", "http://localhost/robots.txt" ]
+      start_period: 5s
+      interval: 3s
+      timeout: 60s
+      retries: 10
+    networks:
+      - lnmp-network
+    depends_on:
+      - mariadb
+
+  redis:
+    build:
+      context: ./redis
+      dockerfile: Dockerfile
+    ports:
+      - "6379:6379"
+    networks:
+      - lnmp-network
+
+networks:
+  lnmp-network:

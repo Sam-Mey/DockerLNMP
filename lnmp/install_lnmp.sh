@@ -5,7 +5,7 @@ cd /
 git clone https://github.com/Sam-Mey/DockerLNMP.git
 cp -r root/certs /DockerLNMP/www/server/nginx
 
-cd /DockerLNMP/lnmp/www/server/builde
+cd /DockerLNMP/lnmp/builde
 
 git clone https://github.com/nginxinc/docker-nginx.git
 

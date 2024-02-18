@@ -6,10 +6,10 @@ clear
 cd "$(dirname "$0")"
 
 # 保存脚本所在目录的路径
-SCRIPT_DIR="/docker_lnmp/lnmp" # 换为实际名称
+SCRIPT_DIR="/DockerLNMP/lnmp" # 换为实际名称
 
 # 引入配置
-. "/docker_lnmp/config.sh"
+. "/DockerLNMP/config.sh"
 
 # Define colors and styles using tput
 BOLD=$(tput bold)
