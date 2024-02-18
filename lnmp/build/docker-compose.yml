@@ -51,7 +51,7 @@ services:
 
   phpmyadmin:
     build:
-      context: ./docker-phpmyadmin/docker/apache
+      context: ./docker-phpmyadmin/apache
       dockerfile: Dockerfile
     environment:
       PMA_HOST: mariadb
