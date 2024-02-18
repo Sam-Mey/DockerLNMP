@@ -85,7 +85,7 @@ function lnmp_options() {
         3)
             clear
             echo -e "${BOLD}${YELLOW} 运行状态... ${RESET}"
-            docker-compose up
+            cd /DockerLNMP/lnmp/build && docker-compose up
         ;;
         4)
             clear
