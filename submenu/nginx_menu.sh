@@ -31,7 +31,7 @@ options=(
 )
 
 # Show nginx
-function nginx_nginx() {
+function show_nginx_menu() {
     echo -e "${BOLD}${BLUE}————————————————————————————————— Nginx 容器服务 ———————————————————————————————————${RESET}\n"
     for i in "${!options[@]}"; do
         if [[ $i -eq $(( ${#options[@]} - 1 )) ]]; then
@@ -49,12 +49,12 @@ function nginx_options() {
     case $choice in
         1)
             clear
-            echo -e "${BOLD}${YELLOW} XXX ${RESET}"
+            echo -e "${BOLD}${YELLOW} Nginx 配置文件： ${RESET}"
             "$XXXXXXX"
         ;;
         2)
             clear
-            echo -e "${BOLD}${YELLOW} XXX ${RESET}"
+            echo -e "${BOLD}${YELLOW} Nginx 日志: ${RESET}"
             "$XXXXXX"
         ;;
         3)
@@ -81,6 +81,6 @@ function nginx_options() {
 
 # 主循环
 while true; do
-    show_nginx
+    show_nginx_menu
     nginx_options
 done
