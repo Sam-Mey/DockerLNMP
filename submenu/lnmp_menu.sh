@@ -117,9 +117,9 @@ function lnmp_options() {
 while true; do
     show_lnmp_menu
     lnmp_options
-    if [[ $choice == "m" || $choice == "M" ]]; then
-        break
-    fi
+    # if [[ $choice == "m" || $choice == "M" ]]; then
+    #     break
+    # fi
 done
 
 
