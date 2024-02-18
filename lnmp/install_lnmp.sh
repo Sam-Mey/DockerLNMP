@@ -1,29 +1,49 @@
 #!/bin/bash
 
-cd /
-git clone https://github.com/Sam-Mey/DockerLNMP.git
-cp -r root/certs /DockerLNMP/www/server/nginx
+BOLD=$(tput bold)
+GRAY=$(tput setaf 0)
+RED=$(tput setaf 1)
+GREEN=$(tput setaf 2)
+YELLOW=$(tput setaf 3)
+BLUE=$(tput setaf 4)
+PURPLE=$(tput setaf 5)
+CYAN=$(tput setaf 6)
+WHITE=$(tput setaf 7)
 
-cd /DockerLNMP/lnmp/build
+RESET=$(tput sgr0)
 
-git clone https://github.com/nginxinc/docker-nginx.git
+# Check if Docker is installed
+if ! command -v docker &> /dev/null; then
+    echo -e "${RED}Docker not installed! Please install Docker first...${RESET}"
+    exit 1
+fi
 
-git clone https://github.com/MariaDB/mariadb-docker.git
-mv mariadb-docker docker-mariadb
+# Check if Docker Compose is installed
+if ! command -v docker-compose &> /dev/null; then
+    echo -e "${RED}Docker Compose not installed! Please install Docker Compose first...${RESET}"
+    exit 1
+fi
 
-git clone https://github.com/docker-library/php.git
-mv php docker-php
+# Get container names
+containers=("nginx" "database" "PHP" "redis" "phpmyadmin")
 
-git clone https://github.com/docker-library/redis.git
-mv redis docker-redis
+# Check if Docker containers are created
+for container in "${containers[@]}"; do
+    if ! docker ps -a --format '{{.Names}}' | grep -q "$container"; then
+        echo -e "${RED}Container $container not found. Make sure all LNMP containers are created...${RESET}"
+        exit 1
+    fi
+done
 
-git clone https://github.com/phpmyadmin/docker.git
-mv docker docker-phpmyadmin
+# Check if database containers exist
+database_containers=("MySQL" "MariaDB" "MongoDB" "sqlite")
+for db_container in "${database_containers[@]}"; do
+    if ! docker ps -a --format '{{.Names}}' | grep -q "$db_container"; then
+        echo -e "${RED}Database container $db_container not found. Make sure all LNMP database containers are created...${RESET}"
+        exit 1
+    fi
+done
 
-find /DockerLNMP -name "*.sh" -exec chmod +x {} \;
-
-chmod -R +x /DockerLNMP
-cd /DockerLNMP/lnmp/build
-docker-compose -f docker-compose.yml up
-
-echo -e "\e[1;32m环境安装完成，您可以尝试访问公网IP地址：\e[1;34mhttp://IP_域名\e[1;32m 或 \e[1;34mhttps://IP_域名\e[0m"
+# Execute LNMP script
+echo -e "${BOLD}${YELLOW}All prerequisites met. Executing LNMP script...${RESET}"
+# Add the command to execute the LNMP script
