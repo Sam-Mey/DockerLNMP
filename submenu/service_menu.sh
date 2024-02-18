@@ -49,27 +49,27 @@ function service_options() {
         1)
             clear
             echo -e "${BOLD}${YELLOW} Nginx ${RESET}"
-            "$NGINX_MENU_SCRIPT_PATH"
+            "$NGINX_SERVER_SCRIPT_PATH"
         ;;
         2)
             clear
             echo -e "${BOLD}${YELLOW} MariaDB ${RESET}"
-            "$MYSQL_MENU_SCRIPT_PATH"
+            "$MYSQL_SERVER_SCRIPT_PATH"
         ;;
         3)
             clear
             echo -e "${BOLD}${YELLOW} PHP ${RESET}"
-            "$PHP_MENU_SCRIPT_PATH"
+            "$PHP_SERVER_SCRIPT_PATH"
         ;;
         4)
             clear
             echo -e "${BOLD}${YELLOW} Redis ${RESET}"
-            "$REDIS_MENU_SCRIPT_PATH"
+            "$REDIS_SERVER_SCRIPT_PATH"
         ;;
         5)
             clear
             echo -e "${BOLD}${YELLOW} phpMyAdmin ${RESET}"
-            "$PHPMYADMIN_MENU_SCRIPT_PATH"
+            "$PHPMYADMIN_SERVER_SCRIPT_PATH"
         ;;
         M|m)
             clear
