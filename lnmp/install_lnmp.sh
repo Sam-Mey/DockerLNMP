@@ -12,38 +12,42 @@ WHITE=$(tput setaf 7)
 
 RESET=$(tput sgr0)
 
-# Check if Docker is installed
+# 检查系统是否安装 Docker
 if ! command -v docker &> /dev/null; then
-    echo -e "${BOLD}${RED}Docker not installed! Please install Docker first...${RESET}"
-    exit 1
+    echo -e "${RED}未安装 Docker !!! 即将为您安装 Docker...${RESET}"
+    # 执行 Docker 安装脚本
 fi
 
-# Check if Docker Compose is installed
+# 检查系统是否安装 Docker Compose
 if ! command -v docker-compose &> /dev/null; then
-    echo -e "${BOLD}${RED}Docker Compose not installed! Please install Docker Compose first...${RESET}"
-    exit 1
+    echo -e "${RED}未安装 Docker Compose !!! 即将为您安装 Docker Compose...${RESET}"
+    # 执行 Docker Compose 安装脚本
 fi
 
-# Get container names
-containers=("nginx" "database" "PHP" "redis" "phpmyadmin")
+# 定义数据库容器
+database_containers=("mysql" "mariadb" "mongodb" "sqlite")
 
-# Check if Docker containers are created
+# 定义 LNMP 容器
+containers=("nginx" "${database_containers[@]}" "php" "redis" "phpmyadmin")
+
+# 检查是否存在 LNMP 容器
+lnmp_containers_exist=true
 for container in "${containers[@]}"; do
     if ! docker ps -a --format '{{.Names}}' | grep -q "$container"; then
-        echo -e "${BOLD}${RED}Container $container not found. Make sure all LNMP containers are created...${RESET}"
-        exit 1
+        lnmp_containers_exist=false
+        break
     fi
 done
 
-# Check if database containers exist
-database_containers=("MySQL" "MariaDB" "MongoDB" "sqlite")
-for db_container in "${database_containers[@]}"; do
-    if ! docker ps -a --format '{{.Names}}' | grep -q "$db_container"; then
-        echo -e "${BOLD}${RED}Database container $db_container not found. Make sure all LNMP database containers are created...${RESET}"
-        exit 1
-    fi
-done
-
-# Execute LNMP script
-echo -e "${BOLD}${YELLOW}All prerequisites met. Executing LNMP script...${RESET}"
-# Add the command to execute the LNMP script
+# 如果 LNMP 容器不存在，执行创建脚本
+if [ "$lnmp_containers_exist" = false ]; then
+    echo "您尚未创建 LNMP 环境，即将为您创建..."
+    # 执行 LNMP 创建脚本
+else
+    echo "您已创建了 LNMP 环境，无需再次创建。"
+    echo "包含以下容器:"
+    for container in "${containers[@]}"; do
+        echo "- $container"
+    done
+    exit
+fi
