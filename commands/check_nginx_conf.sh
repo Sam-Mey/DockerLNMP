@@ -5,7 +5,7 @@ nginx_container_id=$(docker ps -qf "name=nginx")
 
 if [ -n "$nginx_container_id" ]; then
     # 进入nginx容器并查找default.conf
-    nginx_conf_path=$(docker exec -it "$nginx_container_id" find / -name "default.conf" -print -quit)
+    nginx_conf_path=$(docker exec -it "$nginx_container_id" find / -name "default.conf" -print -quit | dos2unix)
     
     if [ -n "$nginx_conf_path" ]; then
         # 在nginx容器内使用cat命令打开default.conf
