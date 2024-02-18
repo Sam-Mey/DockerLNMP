@@ -87,6 +87,11 @@ function lnmp_options() {
             echo -e "${BOLD}${YELLOW} 正在重启所有容器... ${RESET}"
             "$RESTART_SERVER_SCRIPT_PATH"
         ;;
+        7)
+            clear
+            echo -e "${BOLD}${YELLOW} 正在停止所有容器... ${RESET}"
+            docker stop $(docker ps -aq)
+        ;;
         B|b)
             clear
             echo "${BOLD}${RED} 主菜单！ ${RESET}"
