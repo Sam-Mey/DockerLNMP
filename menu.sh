@@ -53,8 +53,8 @@ echo -e "${BOLD}${YELLOW}       安装完成后，再次使用命令行键入 'd
 
 # Define menu options
 options=(
-    "${BOLD}${BLUE} Docker LNMP >> ${RESET}\n"
-    "${BOLD}${BLUE} Website >> ${RESET}"
+    "${BOLD}${BLUE} Docker LNMP >> ${RESET}"
+    "${BOLD}${BLUE} Website >> ${RESET}\n"
     
     "${BOLD}${RED} 退出脚本 ${RESET}"
     "${BOLD}${GREEN} 更新脚本 ${RESET}"
