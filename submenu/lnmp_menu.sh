@@ -2,8 +2,8 @@
 
 clear
 
-# 进入脚本所在目录
-cd "$(dirname "$0")"
+# # 进入脚本所在目录
+# cd "$(dirname "$0")"
 
 # Include configuration
 . "/DockerLNMP/config.sh"
