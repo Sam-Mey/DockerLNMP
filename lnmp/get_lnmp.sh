@@ -31,7 +31,7 @@ RESET=$(tput sgr0)
 database_containers=("mysql" "mariadb" "mongodb" "sqlite")
 
 # 定义 LNMP 容器
-containers=("nginx" "${database_containers[@]}" "php" "redis" "phpmyadmin")
+containers=("nginx" "${database_containers[@]}" "php" "redis" "phpmyadmin" "jemalloc")
 
 # 标记 LNMP 容器是否存在
 lnmp_containers_exist=true

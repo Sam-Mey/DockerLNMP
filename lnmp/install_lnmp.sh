@@ -11,7 +11,7 @@ function countdown {
     done
 }
 
-# 进入脚本所在目�?
+# 进入脚本所在目录
 cd "$(dirname "$0")"
 
 # Include configuration
@@ -33,7 +33,7 @@ RED=$(tput setaf 1)
 CYAN=$(tput setaf 6)
 RESET=$(tput sgr0)
 
-# 检查系统是否安�?Docker
+# 检查系统是否安装 Docker
 if ! command -v docker || ! command -v docker-compose &> /dev/null; then
     echo -e "${BOLD}${YELLOW} 未安装 Docker 现在为您安装... ${RESET}"
     # 执行 Docker 安装脚本
