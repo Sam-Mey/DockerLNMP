@@ -68,13 +68,13 @@ else
     if [ "$database_container_exist" = false ]; then
         echo "${BOLD}${RED} 数据库容器缺失: ${RESET}"
         for database_container in "${database_containers[@]}"; do
-            echo "- $database_container 选 1"
+            echo "${RED}- $database_container 选 1 ${RESET}"
         done
     fi
     echo -e "${BOLD}${RED} LNMP 容器缺失: ${RESET}"
     for container in "${containers[@]}"; do
         if ! docker ps -a --format '{{.Names}}' | grep -q "$container"; then
-            echo "${BOLD}${RED} - $container ${RESET}"
+            echo "${RED} - $container ${RESET}"
         fi
     done
     

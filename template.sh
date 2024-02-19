@@ -8,17 +8,18 @@ cd "$(dirname "$0")"
 # Include configuration
 . /DockerLNMP/config.sh
 
-BOLD=$(tput bold)
-GRAY=$(tput setaf 0)
-RED=$(tput setaf 1)
-GREEN=$(tput setaf 2)
-YELLOW=$(tput setaf 3)
-BLUE=$(tput setaf 4)
-PURPLE=$(tput setaf 5)
-CYAN=$(tput setaf 6)
-WHITE=$(tput setaf 7)
+# 定义颜色和样式，使用 tput
+BOLD=$(tput bold)        # 粗体
+GRAY=$(tput setaf 0)      # 灰色
+RED=$(tput setaf 1)       # 红色
+GREEN=$(tput setaf 2)     # 绿色
+YELLOW=$(tput setaf 3)    # 黄色
+BLUE=$(tput setaf 4)      # 蓝色
+PURPLE=$(tput setaf 5)    # 紫色
+CYAN=$(tput setaf 6)      # 青色
+WHITE=$(tput setaf 7)     # 白色
 
-RESET=$(tput sgr0)
+RESET=$(tput sgr0)        # 重置样式
 
 # Define menu options
 options=(

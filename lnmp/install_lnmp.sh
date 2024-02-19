@@ -41,7 +41,7 @@ if ! command -v docker || ! command -v docker-compose &> /dev/null; then
 else
     echo -e "${BOLD}${CYAN} 您已安装的 Docker 版本：$(docker --version) ${RESET}"
     echo -e "${BOLD}${CYAN} 您已安装的 Docker Compose 版本：$(docker-compose --version) ${RESET}"
-    echo -e "${BOLD}${GREEN} 您已安装了docker 与 compose 正在为您创建 LNMP 环境  ${RESET}"
+    echo -e "${BOLD}${GREEN} 您已安装了docker 与 compose 符合创建 LNMP 环境  ${RESET}"
     
     countdown 10
     "$GET_LNMP_SCRIPT_PATH"
