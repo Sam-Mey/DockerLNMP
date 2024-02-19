@@ -53,7 +53,7 @@ function menu_options() {
         ;;
         2)
             clear
-            echo -e "${BOLD}${GREEN} 申请证书 \u1F512 ${RESET}"
+            echo -e "${BOLD}${GREEN} 申请证书 \u1F51 ${RESET}"
             "$XXXXXX"
         ;;
         B|b)
