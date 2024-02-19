@@ -26,7 +26,7 @@ options=(
     "${BOLD}${BLUE} 站点部署 </> ${RESET}"
     "${BOLD}${GREEN} SSL证书 ${RESET}\n"
     
-    "${BOLD}${GRAY} 返回主菜单 ${RESET}\n"
+    "${BOLD}${YELLOW} 返回主菜单 ${RESET}\n"
 )
 
 # Show menu
