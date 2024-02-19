@@ -60,7 +60,7 @@ function show_menu() {
     echo -e "${BOLD}${BLUE}———————————————————————————————— 主菜单 $VERSION ——————————————————————————————————${RESET}\n"
     for i in "${!options[@]}"; do
         if [[ $i -eq $(( ${#options[@]} - 3 )) ]]; then
-            echo -e "${BOLD}${RED}q. ${options[$i]}${RESET}"  # q 退�?
+            echo -e "${BOLD}${RED}q. ${options[$i]}${RESET}"  # q 退出
             elif [[ $i -eq $(( ${#options[@]} -2 )) ]]; then
             echo -e "${BOLD}${GREEN}u. ${options[$i]}${RESET}"  # u 更新
             elif [[ $i -eq $(( ${#options[@]} -1 )) ]]; then
