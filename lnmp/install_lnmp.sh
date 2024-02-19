@@ -5,7 +5,7 @@ function countdown {
     local seconds=$1
     
     while [ $seconds -gt 0 ]; do
-        echo -e "${RED}" "倒计时: $seconds 秒后 为您创建 [LNMP] 环境 ${RESET}"
+        echo -e "${WHITE}" "倒计时: $seconds 秒后 为您创建 [LNMP] 环境 ${RESET}"
         sleep 1
         ((seconds--))
     done
@@ -35,13 +35,12 @@ RESET=$(tput sgr0)
 
 # 检查系统是否安装 Docker
 if ! command -v docker || ! command -v docker-compose &> /dev/null; then
-    echo -e "${BOLD}${RED} 未安装 Docker 现在为您安装... ${RESET}"
+    echo -e "${BOLD}${YELLOW} 未安装 Docker 现在为您安装... ${RESET}"
     # 执行 Docker 安装脚本
     "$DOCKER_SCRIPT_PATH"
 else
-    echo -e "${BOLD}${CYAN} 您已安装的 Docker 版本：$(docker --version) ${RESET}"
-    echo -e "${BOLD}${CYAN} 您已安装的 Docker Compose 版本：$(docker-compose --version) ${RESET}"
-    echo -e "${BOLD}${GREEN} 您已安装了docker 与 compose 符合创建 LNMP 环境  ${RESET}"
+    echo -e "${BOLD}${CYAN} 您已安装了 Docker 版本：$(docker --version) ${RESET}"
+    echo -e "${BOLD}${CYAN} 您已安装了 Docker Compose 版本：$(docker-compose --version) ${RESET}"
     
     countdown 10
     "$GET_LNMP_SCRIPT_PATH"
