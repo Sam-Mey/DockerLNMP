@@ -2,7 +2,7 @@ FROM gcc:latest
 
 WORKDIR /data
 
-COPY redis/jemalloc.cpp /data/
+COPY ./DockerLNMP/www/redis/data/jemalloc.cpp /data/
 
 RUN g++ -o jemalloc jemalloc.cpp
 
