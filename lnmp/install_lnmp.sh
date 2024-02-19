@@ -44,14 +44,7 @@ else
     echo -e "${GREEN}${CYAN} 您已安装的 Docker Compose 版本：$(docker-compose --version) ${RESET}"
     echo -e "${GREEN}${RED} 您已安装了docker 与 compose 正在为您创建 LNMP 环境  ${RESET}"
     
-    # 添加调试语句
-    echo "Before countdown function call"
-    
     countdown 10
     # 执行 LNMP 安装脚本
     "$GET_LNMP_SCRIPT_PATH"
-    
-    # 添加调试语句
-    echo "After countdown function call"
-    
 fi
