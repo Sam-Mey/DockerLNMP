@@ -40,10 +40,10 @@ echo -e "\033[96m	| | | | | | | |    |    \ |  __||    /      | |    | .   || |\
 echo -e "\033[96m	| |/ /\ \_/ / \__/\| |\  \| |___| |\ \      | |____| |\  || |  | || |    	\033[0m"
 echo -e "\033[96m	|___/  \___/ \____/\_| \_/\____/\_| \_\     |_____/\_| \_/\_|  |_/\_|    	\033[0m"
 echo -e "\033[96m                                                                               \033[0m"
-echo -e "${BOLD}${YELLOW} 温馨提示�?{RESET}\n"
-echo -e "${BOLD}${YELLOW}       目前环境仅支�?Ubuntu Debian arm64 系统; ${RESET}"
-echo -e "${BOLD}${YELLOW}       amd 及其他系待测�?.. ${RESET}"
-echo -e "${BOLD}${YELLOW}       安装完成后，再次使用命令行键�?'dlnmp' 调出菜单�?${RESET}\n"
+echo -e "${BOLD}${YELLOW} 温馨提示                                                              ${RESET}\n"
+echo -e "${BOLD}${YELLOW}       目前环境仅支持 Ubuntu Debian arm64 系统;                         ${RESET}"
+echo -e "${BOLD}${YELLOW}       amd 及其他系待测试..                                             ${RESET}"
+echo -e "${BOLD}${YELLOW}       安装完成后，再次使用命令行键入 'dlnmp' 调出菜单                    ${RESET}\n"
 
 # Define menu options
 options=(
@@ -57,7 +57,7 @@ options=(
 
 # Show menu
 function show_menu() {
-    echo -e "${BOLD}${BLUE}————————————————————————————————�?主菜�?$VERSION ——————————————————————————————————�?{RESET}\n"
+    echo -e "${BOLD}${BLUE}———————————————————————————————— 主菜单 $VERSION ——————————————————————————————————${RESET}\n"
     for i in "${!options[@]}"; do
         if [[ $i -eq $(( ${#options[@]} - 3 )) ]]; then
             echo -e "${BOLD}${RED}q. ${options[$i]}${RESET}"  # q 退�?
@@ -104,7 +104,7 @@ function menu_options() {
                 "$UNINSTALL_SCRIPT_PATH"
                 exit 0
             else
-                echo -e "${BOLD}${YELLOW} 脚本卸载已取�? ${RESET}"
+                echo -e "${BOLD}${YELLOW} 脚本卸载已取 ${RESET}"
             fi
         ;;
         *)
