@@ -96,7 +96,7 @@ function menu_options() {
             echo -e "${BOLD}${YELLOW} 正在拉取 GitHub 仓库的最新提交... ${RESET}"
             "$UPDATE_SCRIPT_PATH"
         ;;
-        R|r)
+        D|d)
             clear
             read -p "$(echo -e "${BOLD}${YELLOW}是否确认卸载脚本? (默认为N) | [N/y]: ${RESET}")" -i "N" answer
             if [ "${answer,,}" = "y" ]; then
