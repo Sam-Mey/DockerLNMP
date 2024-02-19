@@ -28,7 +28,7 @@ options=(
     "${BOLD}${PURPLE} Redis >> ${RESET}"
     "${BOLD}${PURPLE} phpMyAdmin >> ${RESET}\n"
     
-    "${BOLD}${PURPLE} 返回上一�?[Docker LNMP] ${RESET}\n"
+    "${BOLD}${PURPLE} 返回上一级 [Docker LNMP] ${RESET}\n"
 )
 
 function show_service_menu() {

@@ -1,11 +1,11 @@
 #!bash/bin/
 
-# 定义倒计�?
+# 定义倒计
 function countdown {
     local seconds=$1
     
     while [ $seconds -gt 0 ]; do
-        echo -e "倒计�? $seconds 秒后开始安�?
+        echo -e "倒计时 $seconds 秒后开始"
         sleep 1
         ((seconds--))
     done

@@ -2,7 +2,7 @@
 
 clear
 
-# 进入脚本所在目�?
+# 进入脚本所在目录
 cd "$(dirname "$0")"
 
 # Include configuration
@@ -24,15 +24,15 @@ RESET=$(tput sgr0)
 options=(
     "${BOLD}${BLUE} 查看配置文件 ${RESET}"
     "${BOLD}${BLUE} 查看日志 ${RESET}"
-    "${BOLD}${BLUE} 运行状�?${RESET}"
+    "${BOLD}${BLUE} 运行状�?${RESET}"
     "${BOLD}${BLUE} 重新加载 ${RESET}\n"
     
-    "${BOLD}${RED} 返回上一�?${RESET}\n"
+    "${BOLD}${RED} 返回上一�?${RESET}\n"
 )
 
 # Show nginx
 function show_nginx_menu() {
-    echo -e "${BOLD}${BLUE}————————————————————————————————�?Nginx 容器服务 ——————————————————————————————————�?{RESET}\n"
+    echo -e "${BOLD}${BLUE}———————————————————————————————— Nginx 容器服务 —————————————————————————————————— ${RESET}\n"
     for i in "${!options[@]}"; do
         if [[ $i -eq $(( ${#options[@]} - 1 )) ]]; then
             echo -e "${BOLD}${RED}m. ${options[$i]}${RESET}"  # m 返回选项
@@ -49,7 +49,7 @@ function nginx_options() {
     case $choice in
         1)
             clear
-            echo -e "${BOLD}${YELLOW} Nginx 配置文件�?${RESET}"
+            echo -e "${BOLD}${YELLOW} Nginx 配置文件 ${RESET}"
             "$CHECK_NGINX_CONF_SCRIPT_PATH"
         ;;
         2)

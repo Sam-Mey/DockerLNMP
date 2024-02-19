@@ -93,7 +93,7 @@ function menu_options() {
         ;;
         U|u)
             clear
-            echo -e "${BOLD}${YELLOW} 正在拉取 GitHub 仓库的最新提�?.. ${RESET}"
+            echo -e "${BOLD}${YELLOW} 正在拉取 GitHub 仓库的最新提交... ${RESET}"
             "$UPDATE_SCRIPT_PATH"
         ;;
         R|r)
