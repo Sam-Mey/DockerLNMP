@@ -40,11 +40,11 @@ options=(
 function show_lnmp_menu() {
     echo -e "${BOLD}${BLUE}============ Docker LNMP 首页 ============${RESET}\n"
     for i in "${!options[@]}"; do
-        if [[ $i -eq $(( ${#options[@]} - 2 )) ]]; then
+        if [[ $i -eq $(( ${#options[@]} - 4 )) ]]; then
             echo -e "${BOLD}${YELLOW}r. ${options[$i]}${RESET}"  # r restart
-            elif [[ $i -eq $(( ${#options[@]} -1 )) ]]; then
+            elif [[ $i -eq $(( ${#options[@]} -3 )) ]]; then
             echo -e "${BOLD}${RED}s. ${options[$i]}${RESET}"  # s stop
-            elif [[ $i -eq $(( ${#options[@]} -1 )) ]]; then
+            elif [[ $i -eq $(( ${#options[@]} -2 )) ]]; then
             echo -e "${BOLD}${WHITE}b. ${options[$i]}${RESET}"   # b back
             elif [[ $i -eq $(( ${#options[@]} -1 )) ]]; then
             echo -e "${BOLD}${GRAY}d. ${options[$i]}${RESET}"   # d del
