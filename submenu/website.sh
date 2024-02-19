@@ -23,8 +23,8 @@ RESET=$(tput sgr0)        # 重置样式
 
 # Define menu options
 options=(
-    "${BOLD}${BLUE} 站点部署 </> ${RESET}"
-    "${BOLD}${GREEN} SSL证书 \u1F512 ${RESET}\n"
+    "${BOLD}${BLUE} 站点部署 ${RESET}"
+    "${BOLD}${GREEN} SSL证书 ${RESET}\n"
     
     "${BOLD}${YELLOW} 返回主菜单 ${RESET}\n"
 )
