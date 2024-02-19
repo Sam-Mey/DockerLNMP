@@ -24,7 +24,7 @@ RESET=$(tput sgr0)        # 重置样式
 # Define menu options
 options=(
     "${BOLD}${BLUE} 站点部署 </> ${RESET}"
-    "${BOLD}${RED} SSL证书 ${RESET}\n"
+    "${BOLD}${GREEN} SSL证书 ${RESET}\n"
     
     "${BOLD}${GRAY} 返回主菜单 ${RESET}\n"
 )
@@ -34,7 +34,7 @@ function show_menu() {
     echo -e "${BOLD}${BLUE}———————————————————————————————— 站点部署 ———————————————————————————————— ${RESET}\n"
     for i in "${!options[@]}"; do
         if [[ $i -eq $(( ${#options[@]} - 1 )) ]]; then
-            echo -e "${BOLD}${RED}b. ${options[$i]}${RESET}"  # b back
+            echo -e "${BOLD}${YELLOW}b. ${options[$i]}${RESET}"  # b back
         else
             echo -e "${BOLD}${BLUE}$((i+1)). ${options[$i]}${RESET}"
         fi
@@ -48,17 +48,17 @@ function menu_options() {
     case $choice in
         1)
             clear
-            echo -e "${BOLD}${YELLOW} 添加站点 ${RESET}"
+            echo -e "${BOLD}${BLUE} 添加站点 ${RESET}"
             "$XXXXXXX"
         ;;
         2)
             clear
-            echo -e "${BOLD}${YELLOW} 申请证书 \u1F512 ${RESET}"
+            echo -e "${BOLD}${GREEN} 申请证书 \u1F512 ${RESET}"
             "$XXXXXX"
         ;;
         B|b)
             clear
-            echo "${BOLD}${RED} 主菜单 ${RESET}"
+            echo "${BOLD}${YELLOW} 主菜单 ${RESET}"
             exit 0
         ;;
         *)
