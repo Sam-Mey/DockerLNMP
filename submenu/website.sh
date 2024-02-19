@@ -23,11 +23,10 @@ RESET=$(tput sgr0)        # 重置样式
 
 # Define menu options
 options=(
-    "${BOLD}${BLUE}  ${RESET}\n"
+    "${BOLD}${BLUE} 站点部署 </> ${RESET}"
+    "${BOLD}${RED} SSL证书 ${RESET}\n"
     
-    "${BOLD}${RED}  ${RESET}"
-    "${BOLD}${GREEN}  ${RESET}"
-    "${BOLD}${GRAY}  ${RESET}"
+    "${BOLD}${GRAY} 返回主菜单 ${RESET}\n"
 )
 
 # Show menu
@@ -49,17 +48,17 @@ function menu_options() {
     case $choice in
         1)
             clear
-            echo -e "${BOLD}${YELLOW} 添加站点 </> ${RESET}"
+            echo -e "${BOLD}${YELLOW} 添加站点 ${RESET}"
             "$XXXXXXX"
         ;;
         2)
             clear
-            echo -e "${BOLD}${YELLOW} SSL证书 \u1F512 ${RESET}"
+            echo -e "${BOLD}${YELLOW} 申请证书 \u1F512 ${RESET}"
             "$XXXXXX"
         ;;
         B|b)
             clear
-            echo "${BOLD}${RED} 返回主菜单 ${RESET}"
+            echo "${BOLD}${RED} 主菜单 ${RESET}"
             exit 0
         ;;
         *)
