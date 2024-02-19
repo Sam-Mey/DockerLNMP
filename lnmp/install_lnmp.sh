@@ -5,7 +5,7 @@ function countdown {
     local seconds=$1
     
     while [ $seconds -gt 0 ]; do
-        echo -e "${BOLD}${RED}" "倒计时: $seconds 秒后 为您创建 [LNMP] 环境 ${RESET}"
+        echo -e "${RED}" "倒计时: $seconds 秒后 为您创建 [LNMP] 环境 ${RESET}"
         sleep 1
         ((seconds--))
     done
