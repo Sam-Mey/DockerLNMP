@@ -5,7 +5,7 @@ function countdown {
     local seconds=$1
     
     while [ $seconds -gt 0 ]; do
-        echo_color "green" "倒计时: $seconds 秒后开始安装"
+        echo -e "倒计时: $seconds 秒后开始安装"
         sleep 1
         ((seconds--))
     done

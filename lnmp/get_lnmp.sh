@@ -5,11 +5,10 @@ function countdown {
     local seconds=$1
     
     while [ $seconds -gt 0 ]; do
-        echo_color "green" "倒计时: $seconds 秒后"
+        echo -e "${BOLD}${RED}" "倒计时: $seconds 秒后 调用安装命令... ${RESET}"
         sleep 1
         ((seconds--))
     done
-    # ... 其余倒计时的逻辑
 }
 
 # Include configuration
@@ -66,7 +65,6 @@ if [ "$lnmp_containers_exist" = true ] && [ "$database_container_exist" = true ]
     done
 else
     echo -e "${BOLD}${RED} 系统中未创建完整的 LNMP 环境！！${RESET}"
-    countdown 10
     if [ "$database_container_exist" = false ]; then
         echo "${BOLD}${RED} 数据库容器缺失: ${RESET}"
         for database_container in "${database_containers[@]}"; do
@@ -80,9 +78,8 @@ else
         fi
     done
     
-    # 如果 LNMP 容器缺失，执行其他脚本
-    echo "${BOLD}${YELLOW} [创建 LNMP 环境] 即将调用安装命令... ${RESET}"
+    echo "${BOLD}${YELLOW} [创建 LNMP 环境] ... ${RESET}"
+    
     countdown 10
-    # 这里添加执行其他创建脚本的语句
     "$COMMAND_SCRIPT_PATH"
 fi

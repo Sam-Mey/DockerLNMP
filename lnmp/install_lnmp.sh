@@ -5,11 +5,10 @@ function countdown {
     local seconds=$1
     
     while [ $seconds -gt 0 ]; do
-        echo -e "${BOLD}${green}" "倒计时: $seconds 秒后"
+        echo -e "${BOLD}${RED}" "倒计时: $seconds 秒后 为您创建 [LNMP] 环境 ${RESET}"
         sleep 1
         ((seconds--))
     done
-    # ... 其余倒计时的逻辑
 }
 
 # 进入脚本所在目录
@@ -45,6 +44,5 @@ else
     echo -e "${BOLD}${GREEN} 您已安装了docker 与 compose 正在为您创建 LNMP 环境  ${RESET}"
     
     countdown 10
-    # 执行 LNMP 安装脚本
     "$GET_LNMP_SCRIPT_PATH"
 fi
