@@ -26,11 +26,11 @@ RESET=$(tput sgr0)
 if ! command -v docker || ! command -v docker-compose &> /dev/null; then
     echo -e "${BOLD}${RED} 未安装 Docker 现在为您安装... ${RESET}"
     # 执行 Docker 安装脚本
-    "${DOCKER_SCRIPT_PATH}"
+    "$DOCKER_SCRIPT_PATH"
 else
     echo -e "${GREEN}${CYAN} 您已安装的 Docker 版本：$(docker --version) ${RESET}"
     echo -e "${GREEN}${CYAN} 您已安装的 Docker Compose 版本：$(docker-compose --version) ${RESET}"
     echo -e "${GREEN}${RED} 您已安装了docker 与 compose 正在为您创建 LNMP 环境  ${RESET}"
     # 执行 LNMP 安装脚本
-    "${GET_LNMP_SCRIPT_PATH}"
+    "$GET_LNMP_SCRIPT_PATH"
 fi
