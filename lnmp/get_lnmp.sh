@@ -16,6 +16,7 @@ WHITE=$(tput setaf 7)
 
 RESET=$(tput sgr0)
 
+# 定义 countdown 函数
 function countdown {
     local seconds=$1
     
@@ -24,6 +25,7 @@ function countdown {
         sleep 1
         ((seconds--))
     done
+    # ... 其余倒计时的逻辑
 }
 
 # 定义数据库容器
