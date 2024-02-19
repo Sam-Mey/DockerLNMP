@@ -16,6 +16,16 @@ WHITE=$(tput setaf 7)
 
 RESET=$(tput sgr0)
 
+function countdown {
+    local seconds=$1
+    
+    while [ $seconds -gt 0 ]; do
+        echo_color "green" "倒计时: $seconds 秒后"
+        sleep 1
+        ((seconds--))
+    done
+}
+
 # 定义数据库容器
 database_containers=("mysql" "mariadb" "mongodb" "sqlite")
 
@@ -74,13 +84,3 @@ else
     # 这里添加执行其他创建脚本的语句
     "$COMMAND_SCRIPT_PATH"
 fi
-
-function countdown {
-    local seconds=$1
-    
-    while [ $seconds -gt 0 ]; do
-        echo_color "green" "倒计时: $seconds 秒后"
-        sleep 1
-        ((seconds--))
-    done
-}
