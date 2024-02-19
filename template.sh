@@ -2,7 +2,7 @@
 
 clear
 
-# 进入脚本所在目录
+# 进入脚本所在目�?
 cd "$(dirname "$0")"
 
 # Include configuration
@@ -32,7 +32,7 @@ options=(
 
 # Show menu
 function show_menu() {
-    echo -e "${BOLD}${BLUE}—————————————————————————————————  ———————————————————————————————————${RESET}\n"
+    echo -e "${BOLD}${BLUE}————————————————————————————————�? ——————————————————————————————————�?{RESET}\n"
     for i in "${!options[@]}"; do
         if [[ $i -eq $(( ${#options[@]} - 1 )) ]]; then
             echo -e "${BOLD}${RED}m. ${options[$i]}${RESET}"  # q 返回选项

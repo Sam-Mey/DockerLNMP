@@ -2,7 +2,7 @@
 
 clear
 
-# 进入脚本所在目录
+# 进入脚本所在目�?
 cd "$(dirname "$0")"
 
 # Include configuration
@@ -27,15 +27,15 @@ options=(
     "${BOLD}${BLUE} Arm64 系统 ${RESET}"
     "${BOLD}${GRAY} DD 系统 ${RESET}\n"
     
-    "${BOLD}${RED} 返回主菜单 ${RESET}\n"
+    "${BOLD}${RED} 返回主菜�?${RESET}\n"
 )
 
 # Show docker
 function show_docker() {
-    echo -e "${BOLD}${BLUE} ———————————————————— 安装 Docker / Compose ———————————————————— ${RESET}\n"
+    echo -e "${BOLD}${BLUE} ———————————————————�?安装 Docker / Compose ———————————————————�?${RESET}\n"
     for i in "${!options[@]}"; do
         if [[ $i -eq $(( ${#options[@]} - 1 )) ]]; then
-            echo -e "${BOLD}${RED}b. ${options[$i]}${RESET}"  # q 返回选项
+            echo -e "${BOLD}${RED}b. ${options[$i]}${RESET}"  # b 返回选项
         else
             echo -e "${BOLD}${BLUE}$((i+1)). ${options[$i]}${RESET}"
         fi
@@ -69,7 +69,7 @@ function docker_options() {
         ;;
         B|b)
             clear
-            echo "${BOLD}${RED} 主菜单 ${RESET}"
+            echo "${BOLD}${RED} 主菜�?${RESET}"
         ;;
         *)
             clear

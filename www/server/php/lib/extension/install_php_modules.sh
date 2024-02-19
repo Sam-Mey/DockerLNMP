@@ -34,7 +34,7 @@ done
 # 重新加载 PHP 服务（如果需要）
 service php8.3-fpm reload
 
-echo "PHP 模块安装完成。"
+echo "PHP 模块安装完成�?
 
 
 

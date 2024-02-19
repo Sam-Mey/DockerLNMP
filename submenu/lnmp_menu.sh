@@ -2,7 +2,7 @@
 
 clear
 
-# # 进入脚本所在目录
+# # 进入脚本所在目�?
 # cd "$(dirname "$0")"
 
 # Include configuration
@@ -25,7 +25,7 @@ RESET=$(tput sgr0)
 options=(
     "${BOLD}${PURPLE} 安装 Docker LNMP 环境 ${RESET}\n"
     
-    "${BOLD}${PURPLE} 启动状态 ${RESET}"
+    "${BOLD}${PURPLE} 启动状�?${RESET}"
     "${BOLD}${PURPLE} 运行日志 ${RESET}"
     "${BOLD}${PURPLE} 镜像网络 ${RESET}\n"
     
@@ -34,7 +34,7 @@ options=(
     "${BOLD}${PURPLE} 重启 LNMP 服务 ${RESET}\n"
     "${BOLD}${PURPLE} 停止 LNMP 服务 ${RESET}\n"
     
-    "${BOLD}${RED} 返回主菜单 ${RESET}"
+    "${BOLD}${RED} 返回主菜�?${RESET}"
     "${BOLD}${GRAY} 卸载 Docker LNMP 环境 ${RESET}\n"
 )
 
@@ -73,7 +73,7 @@ function lnmp_options() {
         ;;
         4)
             clear
-            echo -e "${BOLD}${YELLOW} 系统镜像/网络列表： ${RESET}"
+            echo -e "${BOLD}${YELLOW} 系统镜像/网络列表�?${RESET}"
             docker images
             docker network ls
         ;;
@@ -84,12 +84,12 @@ function lnmp_options() {
         ;;
         6)
             clear
-            echo -e "${BOLD}${YELLOW} 正在重启所有容器... ${RESET}"
+            echo -e "${BOLD}${YELLOW} 正在重启所有容�?.. ${RESET}"
             "$RESTART_SERVER_SCRIPT_PATH"
         ;;
         7)
             clear
-            echo -e "${BOLD}${YELLOW} 正在停止所有容器... ${RESET}"
+            echo -e "${BOLD}${YELLOW} 正在停止所有容�?.. ${RESET}"
             docker stop $(docker ps -aq)
         ;;
         B|b)
@@ -98,13 +98,13 @@ function lnmp_options() {
         ;;
         D|d)
             clear
-            read -p "$(echo -e "${BOLD}${YELLOW}此操作仅卸载所有创建的容器、镜像、网络，并不是卸载 Docker! 是否确认卸载整个 LNMP 环境? (默认为N) | [N/y]: ${RESET}")" -i "N" answer
+            read -p "$(echo -e "${BOLD}${YELLOW}此操作仅卸载所有创建的容器、镜像、网络，并不是卸�?Docker! 是否确认卸载整个 LNMP 环境? (默认为N) | [N/y]: ${RESET}")" -i "N" answer
             if [ "${answer,,}" = "y" ]; then
                 echo -e "${BOLD}${RED} 正在卸载 LNMP 环境... ${RESET}"
                 "$UNINSTALL_LNMP_SCRIPT_PATH"
                 exit 0
             else
-                echo -e "${BOLD}${YELLOW} 已取消卸载. ${RESET}"
+                echo -e "${BOLD}${YELLOW} 已取消卸�? ${RESET}"
             fi
         ;;
         *)
@@ -121,5 +121,3 @@ while true; do
         break
     fi
 done
-
-

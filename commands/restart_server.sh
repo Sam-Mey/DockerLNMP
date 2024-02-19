@@ -17,7 +17,7 @@ restart_container() {
         docker restart "$container_id"
         return 0  # Success
     else
-        echo "容器 $container_id 不存在或无法访问。"
+        echo "容器 $container_id 不存在或无法访问�?
         return 1  # Failure
     fi
 }
@@ -26,9 +26,9 @@ restart_container() {
 for container_id in $database_container_id; do
     restart_container "$container_id"
     if [ $? -eq 0 ]; then
-        echo "容器 $container_id 已成功重启。"
+        echo "容器 $container_id 已成功重启�?
     else
-        echo "容器 $container_id 重启失败。"
+        echo "容器 $container_id 重启失败�?
     fi
 done
 
@@ -39,16 +39,16 @@ success_count=0
 for container_id in "${all_containers[@]}"; do
     restart_container "$container_id"
     if [ $? -eq 0 ]; then
-        echo "容器 $container_id 已成功重启。"
+        echo "容器 $container_id 已成功重启�?
         ((success_count++))
     else
-        echo "容器 $container_id 重启失败。"
+        echo "容器 $container_id 重启失败�?
     fi
 done
 
 # Check if all containers were successfully restarted
 if [ $success_count -eq ${#all_containers[@]} ]; then
-    echo "所有容器已重启完成。"
+    echo "所有容器已重启完成�?
 else
-    echo "部分容器重启失败。请检查日志以获取详细信息。"
+    echo "部分容器重启失败。请检查日志以获取详细信息�?
 fi

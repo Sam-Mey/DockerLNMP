@@ -34,4 +34,4 @@ cd /DockerLNMP/lnmp/build
 docker-compose -f docker-compose.yml up
 
 # Print completion message
-echo -e "\e[1;32m环境安装完成，您可以尝试访问公网IP地址：\e[1;34mhttp://IP_域名\e[1;32m 或 \e[1;34mhttps://IP_域名\e[0m"
+echo -e "\e[1;32m环境安装完成，您可以尝试访问公网IP地址：\e[1;34mhttp://IP_域名\e[1;32m �?\e[1;34mhttps://IP_域名\e[0m"
