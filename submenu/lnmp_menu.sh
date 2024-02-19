@@ -27,14 +27,13 @@ options=(
     
     "${BOLD}${PURPLE} 启动状态 ${RESET}"
     "${BOLD}${PURPLE} 运行日志 ${RESET}"
-    "${BOLD}${PURPLE} 镜像网络 ${RESET}\n"
-    
+    "${BOLD}${PURPLE} 镜像网络 ${RESET}"
     "${BOLD}${PURPLE} 服务 >> ${RESET}\n"
     
-    "${BOLD}${PURPLE} 重启 LNMP 服务 ${RESET}\n"
-    "${BOLD}${PURPLE} 停止 LNMP 服务 ${RESET}\n"
+    "${BOLD}${YELLOW} 重启 LNMP 服务 ${RESET}"
+    "${BOLD}${RED} 停止 LNMP 服务 ${RESET}\n"
     
-    "${BOLD}${RED} 返回主菜单 ${RESET}"
+    "${BOLD}${WHITE} 返回主菜单 ${RESET}"
     "${BOLD}${GRAY} 卸载 Docker LNMP 环境 ${RESET}\n"
 )
 
@@ -42,9 +41,13 @@ function show_lnmp_menu() {
     echo -e "${BOLD}${BLUE}============ Docker LNMP 首页 ============${RESET}\n"
     for i in "${!options[@]}"; do
         if [[ $i -eq $(( ${#options[@]} - 2 )) ]]; then
-            echo -e "${BOLD}${RED}b. ${options[$i]}${RESET}"  # b 返回
+            echo -e "${BOLD}${YELLOW}r. ${options[$i]}${RESET}"  # r restart
             elif [[ $i -eq $(( ${#options[@]} -1 )) ]]; then
-            echo -e "${BOLD}${GRAY}d. ${options[$i]}${RESET}"  # d 卸载
+            echo -e "${BOLD}${RED}s. ${options[$i]}${RESET}"  # s stop
+            elif [[ $i -eq $(( ${#options[@]} -1 )) ]]; then
+            echo -e "${BOLD}${WHITE}b. ${options[$i]}${RESET}"   # b back
+            elif [[ $i -eq $(( ${#options[@]} -1 )) ]]; then
+            echo -e "${BOLD}${GRAY}d. ${options[$i]}${RESET}"   # d del
         else
             echo -e "${BOLD}${PURPLE}$((i+1)). ${options[$i]}${RESET}"
         fi
@@ -82,25 +85,25 @@ function lnmp_options() {
             echo -e "${BOLD}${YELLOW} 服务列表: ${RESET}"
             "$SERVICE_MENU_SCRIPT_PATH"
         ;;
-        6)
+        R|r)
             clear
-            echo -e "${BOLD}${YELLOW} 正在重启所有容器... ${RESET}"
+            echo -e "${BOLD}${WHITE} 正在重启所有容器... ${RESET}"
             "$RESTART_SERVER_SCRIPT_PATH"
         ;;
-        7)
+        S|s)
             clear
-            echo -e "${BOLD}${YELLOW} 正在停止所有容器... ${RESET}"
+            echo -e "${BOLD}${RED} 正在停止所有容器... ${RESET}"
             docker stop $(docker ps -aq)
         ;;
         B|b)
             clear
-            echo "${BOLD}${RED} 主菜单！ ${RESET}"
+            echo "${BOLD}${WHITE} 主菜单！ ${RESET}"
         ;;
         D|d)
             clear
             read -p "$(echo -e "${BOLD}${YELLOW}此操作仅卸载所有创建的容器、镜像、网络，并不是卸载 Docker! 是否确认卸载整个 LNMP 环境? (默认为N) | [N/y]: ${RESET}")" -i "N" answer
             if [ "${answer,,}" = "y" ]; then
-                echo -e "${BOLD}${RED} 正在卸载 LNMP 环境... ${RESET}"
+                echo -e "${BOLD}${GRAY} 正在卸载 LNMP 环境... ${RESET}"
                 "$UNINSTALL_LNMP_SCRIPT_PATH"
                 exit 0
             else
