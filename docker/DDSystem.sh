@@ -1,6 +1,6 @@
 #!/bash/bin
 
-# 定义倒计�?
+# 定义 countdown 函数
 function countdown {
     local seconds=$1
     
