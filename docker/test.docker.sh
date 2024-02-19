@@ -22,11 +22,12 @@ RESET=$(tput sgr0)
 
 # Define docker options
 options=(
-    "${BOLD}${BLUE} Ubuntu/Debian ${RESET}\n"
-    
+    "${BOLD}${BLUE} Ubuntu/Debian ${RESET}"
     "${BOLD}${RED} CentOS ${RESET}"
     "${BOLD}${GREEN} Arm64 系统 ${RESET}"
-    "${BOLD}${GRAY} DD 系统 ${RESET}"
+    "${BOLD}${GRAY} DD 系统 ${RESET}\n"
+    
+    "${BOLD}${GRAY} 返回主菜单 ${RESET}\n"
 )
 
 # Show docker
@@ -68,8 +69,7 @@ function docker_options() {
         ;;
         Q|q)
             clear
-            echo "${BOLD}${RED} 谢谢使用，再见！ ${RESET}"
-            exit 0
+            echo "${BOLD}${RED} 主菜单 ${RESET}"
         ;;
         *)
             clear

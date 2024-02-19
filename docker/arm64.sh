@@ -1,4 +1,4 @@
-#!/bash/bin
+#!bash/bin/
 
 # 定义倒计时
 function countdown {
@@ -22,7 +22,7 @@ function countdown {
     software-properties-common -y
     curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
     sudo add-apt-repository \
-    "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+    "deb [arch=arm64] https://download.docker.com/linux/ubuntu \
    $(lsb_release -cs) \
     stable"
     sudo apt-get install docker-ce docker-ce-cli containerd.io -y
@@ -32,10 +32,9 @@ function countdown {
     systemctl start docker
     systemctl enable docker
     
-    # Docker-Compose
-    
     countdown 3
     
+    # Docker-compose
     curl -fsSL https://get.docker.com | bash -s docker
     
     countdown 3

@@ -12,6 +12,7 @@ RESET=$(tput sgr0)
 if ! command -v docker || ! command -v docker-compose &> /dev/null; then
     echo -e "${RED}未安装 Docker 现在为您安装...${RESET}"
     # 执行 Docker 安装脚本
+    "$DOCKER_SCRIPT_PATH"
 else
     echo -e "${CYAN}您已安装的 Docker 版本：$(docker --version)${RESET}"
     echo -e "${CYAN}您已安装的 Docker Compose 版本：$(docker-compose --version)${RESET}"
