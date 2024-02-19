@@ -1,5 +1,21 @@
 #!/bin/bash
 
+# Include configuration
+. /DockerLNMP/config.sh
+
+# Define colors and styles using tput
+BOLD=$(tput bold)
+GRAY=$(tput setaf 0)
+RED=$(tput setaf 1)
+GREEN=$(tput setaf 2)
+YELLOW=$(tput setaf 3)
+BLUE=$(tput setaf 4)
+PURPLE=$(tput setaf 5)
+CYAN=$(tput setaf 6)
+WHITE=$(tput setaf 7)
+
+RESET=$(tput sgr0)
+
 # 定义数据库容器
 database_containers=("mysql" "mariadb" "mongodb" "sqlite")
 
@@ -29,30 +45,30 @@ done
 
 # 判断 LNMP 容器是否存在且数据库容器存在
 if [ "$lnmp_containers_exist" = true ] && [ "$database_container_exist" = true ]; then
-    echo "LNMP 环境已创建。"
-    echo "包含以下容器:"
+    echo "${BOLD}${GREEN} LNMP 环境已创建。 ${RESET}"
+    echo "${BOLD}${GREEN} 包含以下容器: ${RESET}"
     for container in "${containers[@]}"; do
         if [ "$container" != "mysql" ] && [ "$container" != "mongodb" ] && [ "$container" != "sqlite" ]; then
             echo "- $container"
         fi
     done
 else
-    echo "系统中未创建完整的 LNMP 环境！！"
+    echo -e "${BOLD}${RED} 系统中未创建完整的 LNMP 环境！！${RESET}"
     if [ "$database_container_exist" = false ]; then
-        echo "数据库容器缺失:"
+        echo "${BOLD}${RED} 数据库容器缺失: ${RESET}"
         for database_container in "${database_containers[@]}"; do
             echo "- $database_container 选 1"
         done
     fi
-    echo "LNMP 容器缺失:"
+    echo -e "${BOLD}${RED} LNMP 容器缺失: ${RESET}"
     for container in "${containers[@]}"; do
         if ! docker ps -a --format '{{.Names}}' | grep -q "$container"; then
-            echo "- $container"
+            echo "${BOLD}${RED} - $container ${RESET}"
         fi
     done
     
     # 如果 LNMP 容器缺失，执行其他脚本
-    echo "调用安装命令..."
+    echo "${BOLD}${YELLOW} 调用安装命令... ${RESET}"
     # 这里添加执行其他创建脚本的语句
     "$COMMAND_SCRIPT_PATH"
 fi
