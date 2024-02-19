@@ -1,11 +1,11 @@
 #include <iostream>
 #include <fstream>
+#include <algorithm>
 #include <deque>
 #include <vector>
 #include <thread>
 #include <cstdlib>
-#include <ctime>
-#include <memory>
+#include <cstring>
 
 void fun()
 {
