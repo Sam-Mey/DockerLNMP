@@ -60,7 +60,7 @@ if [ "$lnmp_containers_exist" = true ] && [ "$database_container_exist" = true ]
     echo "${BOLD}${GREEN} 包含以下容器: ${RESET}"
     for container in "${containers[@]}"; do
         if [ "$container" != "mysql" ] && [ "$container" != "mongodb" ] && [ "$container" != "sqlite" ]; then
-            echo "${BOLD}${GREEN} - $container ${RESET}"
+            echo "${GREEN} - $container ${RESET}"
         fi
     done
 else
