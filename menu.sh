@@ -50,7 +50,7 @@ options=(
     "${BOLD}${BLUE} Docker LNMP >> ${RESET}"
     "${BOLD}${BLUE} Website >> ${RESET}\n"
     
-    "${BOLD}${RED} 退出脚�?${RESET}"
+    "${BOLD}${RED} 退出脚本 ${RESET}"
     "${BOLD}${GREEN} 更新脚本 ${RESET}"
     "${BOLD}${GRAY} 卸载脚本 ${RESET}"
 )
