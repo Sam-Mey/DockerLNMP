@@ -42,6 +42,6 @@ else
     echo -e "${BOLD}${CYAN} 您已安装了 Docker 版本：(docker --version) ${RESET}"
     echo -e "${BOLD}${CYAN} 您已安装了 Docker Compose 版本：(docker-compose --version) ${RESET}"
     
-    countdown 了
+    countdown 10
     "$GET_LNMP_SCRIPT_PATH"
 fi
