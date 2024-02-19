@@ -1,5 +1,17 @@
 #!/bin/bash
 
+# 定义 countdown 函数
+function countdown {
+    local seconds=$1
+    
+    while [ $seconds -gt 0 ]; do
+        echo_color "green" "倒计时: $seconds 秒后"
+        sleep 1
+        ((seconds--))
+    done
+    # ... 其余倒计时的逻辑
+}
+
 # Include configuration
 . /DockerLNMP/config.sh
 
@@ -15,18 +27,6 @@ CYAN=$(tput setaf 6)
 WHITE=$(tput setaf 7)
 
 RESET=$(tput sgr0)
-
-# 定义 countdown 函数
-function countdown {
-    local seconds=$1
-    
-    while [ $seconds -gt 0 ]; do
-        echo_color "green" "倒计时: $seconds 秒后"
-        sleep 1
-        ((seconds--))
-    done
-    # ... 其余倒计时的逻辑
-}
 
 # 定义数据库容器
 database_containers=("mysql" "mariadb" "mongodb" "sqlite")
