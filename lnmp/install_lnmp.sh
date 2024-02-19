@@ -1,5 +1,17 @@
 #!/bin/bash
 
+# 定义 countdown 函数
+function countdown {
+    local seconds=$1
+    
+    while [ $seconds -gt 0 ]; do
+        echo_color "green" "倒计时: $seconds 秒后"
+        sleep 1
+        ((seconds--))
+    done
+    # ... 其余倒计时的逻辑
+}
+
 # 进入脚本所在目录
 cd "$(dirname "$0")"
 
@@ -31,6 +43,15 @@ else
     echo -e "${GREEN}${CYAN} 您已安装的 Docker 版本：$(docker --version) ${RESET}"
     echo -e "${GREEN}${CYAN} 您已安装的 Docker Compose 版本：$(docker-compose --version) ${RESET}"
     echo -e "${GREEN}${RED} 您已安装了docker 与 compose 正在为您创建 LNMP 环境  ${RESET}"
+    
+    # 添加调试语句
+    echo "Before countdown function call"
+    
+    countdown 10
     # 执行 LNMP 安装脚本
     "$GET_LNMP_SCRIPT_PATH"
+    
+    # 添加调试语句
+    echo "After countdown function call"
+    
 fi
