@@ -109,7 +109,7 @@ services:
     
   jemalloc:
     build:
-      context: ./DockerLNMP/www/redis/data
+      context: ./DockerLNMP/www/server/redis/data/
       dockerfile: Dockerfile
     depends_on:
       - redis
