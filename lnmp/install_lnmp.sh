@@ -10,7 +10,7 @@ RESET=$(tput sgr0)
 
 # 检查系统是否安装 Docker
 if ! command -v docker || ! command -v docker-compose &> /dev/null; then
-    echo -e "${RED}未安装 Docker 与 compose，现在为您安装...${RESET}"
+    echo -e "${RED}未安装 Docker 现在为您安装...${RESET}"
     # 执行 Docker 安装脚本
 else
     echo -e "${CYAN}您已安装的 Docker 版本：$(docker --version)${RESET}"
