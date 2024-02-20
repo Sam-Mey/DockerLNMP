@@ -72,7 +72,7 @@ function service_options() {
             echo -e "${BOLD}${YELLOW} phpMyAdmin ${RESET}"
             "$PHPMYADMIN_SERVER_SCRIPT_PATH"
         ;;
-        M|m)
+        B|b)
             clear
             echo -e "${BOLD}${YELLOW} Docker LNMP ${RESET}"
         ;;
