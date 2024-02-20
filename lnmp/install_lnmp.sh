@@ -39,8 +39,8 @@ if ! command -v docker || ! command -v docker-compose &> /dev/null; then
     # 执行 Docker 安装脚本
     "$DOCKER_SCRIPT_PATH"
 else
-    echo -e "${BOLD}${CYAN} 您已安装了 Docker 版本：(docker --version) ${RESET}"
-    echo -e "${BOLD}${CYAN} 您已安装了 Docker Compose 版本：(docker-compose --version) ${RESET}"
+    echo -e "${BOLD}${GREEN} 您已安装了 Docker 版本：(docker --version) ${RESET}"
+    echo -e "${BOLD}${GREEN} 您已安装了 Docker Compose 版本：(docker-compose --version) ${RESET}"
     
     countdown 10
     "$GET_LNMP_SCRIPT_PATH"

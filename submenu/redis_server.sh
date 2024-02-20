@@ -57,12 +57,12 @@ function redis_server_options() {
             echo -e "${BOLD}${YELLOW} [Redis 必须] 启用系统内存超额提交... ${RESET}"
             "$SET_OVERCOMMIT_MEMORY_SCRIPT_PATH"
         ;;
-        2)
+        3)
             clear
             echo -e "${BOLD}${YELLOW} 正在关闭系统内存超额提交... ${RESET}"
             "$RECOVER_OVERCOMMIT_MEMORY_SCRIPT_PATH"
         ;;
-        Q|q)
+        B|b)
             clear
             echo "${BOLD}${RED} 谢谢使用，再见！ ${RESET}"
             exit 0

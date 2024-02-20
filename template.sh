@@ -49,15 +49,25 @@ function menu_options() {
     case $choice in
         1)
             clear
-            echo -e "${BOLD}${YELLOW} Docker LNMP 选项 ${RESET}"
+            echo -e "${BOLD}${YELLOW} XXX ${RESET}"
             "$XXXXXXX"
         ;;
         2)
             clear
-            echo -e "${BOLD}${YELLOW} WebSite ${RESET}"
+            echo -e "${BOLD}${YELLOW} XXX ${RESET}"
             "$XXXXXX"
         ;;
-        Q|q)
+        3)
+            clear
+            echo -e "${BOLD}${YELLOW} XXX ${RESET}"
+            "$XXXXXXX"
+        ;;
+        4)
+            clear
+            echo -e "${BOLD}${YELLOW} XXX ${RESET}"
+            "$XXXXXX"
+        ;;
+        B|b)
             clear
             echo "${BOLD}${RED} 谢谢使用，再见！ ${RESET}"
             exit 0

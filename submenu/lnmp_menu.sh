@@ -2,9 +2,6 @@
 
 clear
 
-# # 进入脚本所在目录
-# cd "$(dirname "$0")"
-
 # Include configuration
 . "/DockerLNMP/config.sh"
 
@@ -101,14 +98,7 @@ function lnmp_options() {
         ;;
         D|d)
             clear
-            read -p "$(echo -e "${BOLD}${YELLOW}此操作仅卸载所有创建的容器、镜像、网络，并不是卸载 Docker! 是否确认卸载整个 LNMP 环境? (默认为N) | [N/y]: ${RESET}")" -i "N" answer
-            if [ "${answer,,}" = "y" ]; then
-                echo -e "${BOLD}${GRAY} 正在卸载 LNMP 环境... ${RESET}"
-                "$UNINSTALL_LNMP_SCRIPT_PATH"
-                exit 0
-            else
-                echo -e "${BOLD}${YELLOW} 已取消卸载 ${RESET}"
-            fi
+            "$UNINSTALL_LNMP_SCRIPT_PATH"
         ;;
         *)
             clear

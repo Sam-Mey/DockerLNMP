@@ -44,5 +44,5 @@ if [ "$current_status" -eq 1 ]; then
         echo -e "${BOLD}${YELLOW} 您选择保持开启系统内存超额提交. ${RESET}"
     fi
 else
-    echo -e "${BOLD}${RED} 当前 vm.overcommit_memory 的状态已经不是 $current_status 无需修改. ${RESET}"
+    echo -e "${BOLD}${RED} 当前 vm.overcommit_memory 的状态已经是 $current_status 无需修改. ${RESET}"
 fi
