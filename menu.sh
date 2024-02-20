@@ -5,8 +5,6 @@
 
 clear
 
-VERSION="v1.5.0"
-
 # # debug working pwd
 # echo "Current working directory: $(pwd)"
 
@@ -32,7 +30,7 @@ WHITE=$(tput setaf 7)
 
 RESET=$(tput sgr0)
 
-echo -e "\033[96m—————————————————————————�?Docker LNMP 网站环境 $VERSION ————————————————————————————\033[0m"
+echo -e "\033[96m————————————————————————— Docker LNMP 网站环境 $VERSION ————————————————————————————\033[0m"
 echo -e "\033[96m	______ _____ _____  _   __ ___________       _      _   _ ___  _________ 	\033[0m"
 echo -e "\033[96m	|  _  \  _  /  __ \| | / /|  ___| ___ \     | |    | \ | ||  \/  || ___ \	\033[0m"
 echo -e "\033[96m	| | | | | | | /  \/| |/ / | |__ | |_/ /     | |    |  \| || .  . || |_/ /	\033[0m"
@@ -57,7 +55,7 @@ options=(
 
 # Show menu
 function show_menu() {
-    echo -e "${BOLD}${BLUE}———————————————————————————————— 主菜单 $VERSION ——————————————————————————————————${RESET}\n"
+    echo -e "${BOLD}${BLUE}———————————————————————————————— 主菜单 ——————————————————————————————————${RESET}\n"
     for i in "${!options[@]}"; do
         if [[ $i -eq $(( ${#options[@]} - 3 )) ]]; then
             echo -e "${BOLD}${RED}q. ${options[$i]}${RESET}"  # q 退出
@@ -118,3 +116,9 @@ while true; do
     show_menu
     menu_options
 done
+
+
+# 读取版本信息并使用 jq 解析 JSON 数据
+version=$(jq -r .version version.json)
+
+echo -e "${BOLD}${BLUE}———————————————————————————————— Current version: $version ——————————————————————————————————${RESET}\n"
