@@ -9,7 +9,8 @@ cd "$(dirname "$0")"
 . /DockerLNMP/config.sh
 
 # 定义颜色和样式，使用 tput
-BOLD=$(tput bold)        # 粗体
+BOLD=$(tput bold)         # 粗体
+DIM=$(tput dim)           # 细体
 GRAY=$(tput setaf 0)      # 灰色
 RED=$(tput setaf 1)       # 红色
 GREEN=$(tput setaf 2)     # 绿色
@@ -18,6 +19,10 @@ BLUE=$(tput setaf 4)      # 蓝色
 PURPLE=$(tput setaf 5)    # 紫色
 CYAN=$(tput setaf 6)      # 青色
 WHITE=$(tput setaf 7)     # 白色
+
+UNDERLINE=$(tput smul): # 设置为下划线
+BLINK=$(tput blink):    # 设置为闪烁
+REVERSE=$(tput rev):    # 设置为反显
 
 RESET=$(tput sgr0)        # 重置样式
 
