@@ -51,27 +51,27 @@ function containers_service_menu_options() {
         1)
             clear
             echo -e "${BOLD}${YELLOW} Nginx ${RESET}"
-            "$NGINX_SERVER_SCRIPT_PATH"
+            "$NGINX_MENU_LIST_SCRIPT_PATH"
         ;;
         2)
             clear
             echo -e "${BOLD}${YELLOW} MariaDB ${RESET}"
-            "$MYSQL_SERVER_SCRIPT_PATH"
+            "$MYSQL_MENU_LIST_SCRIPT_PATH"
         ;;
         3)
             clear
             echo -e "${BOLD}${YELLOW} PHP ${RESET}"
-            "$PHP_SERVER_SCRIPT_PATH"
+            "$PHP_MENU_LIST_SCRIPT_PATH"
         ;;
         4)
             clear
             echo -e "${BOLD}${YELLOW} Redis ${RESET}"
-            "$REDIS_SERVER_SCRIPT_PATH"
+            "$REDIS_MENU_LIST_SCRIPT_PATH"
         ;;
         5)
             clear
             echo -e "${BOLD}${YELLOW} phpMyAdmin ${RESET}"
-            "$PHPMYADMIN_SERVER_SCRIPT_PATH"
+            "$PHPMYADMIN_MENU_LIST_SCRIPT_PATH"
         ;;
         B|b)
             clear
