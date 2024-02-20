@@ -87,4 +87,7 @@ function containers_service_menu_options() {
 while true; do
     show_containers_service_menu
     containers_service_menu_options
+    if [[ $choice == "b" || $choice == "B" ]]; then
+        break
+    fi
 done

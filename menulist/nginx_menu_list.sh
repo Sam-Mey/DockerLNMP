@@ -31,7 +31,7 @@ options=(
 )
 
 # Show nginx
-function show_nginx_menu() {
+function show_nginx_menu_list() {
     echo -e "${BOLD}${BLUE}———————————————————————————————— Nginx 容器服务 —————————————————————————————————— ${RESET}\n"
     for i in "${!options[@]}"; do
         if [[ $i -eq $(( ${#options[@]} - 1 )) ]]; then
@@ -43,7 +43,7 @@ function show_nginx_menu() {
 }
 
 # Handle user choice
-function nginx_options() {
+function nginx_menu_list_options() {
     read -p "${BOLD}${BLUE} 请输入选项编号:${RESET}" choice
     echo "DEBUG: User input is $choice"  # debug
     case $choice in
@@ -80,6 +80,9 @@ function nginx_options() {
 }
 
 while true; do
-    show_nginx_menu
-    nginx_options
+    show_nginx_menu_list
+    nginx_menu_list_options
+    if [[ $choice == "b" || $choice == "B" ]]; then
+        break
+    fi
 done

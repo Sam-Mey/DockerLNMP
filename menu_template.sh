@@ -82,4 +82,7 @@ function menu_options() {
 while true; do
     show_menu
     menu_options
+    if [[ $choice == "b" || $choice == "B" ]]; then
+        break
+    fi
 done
