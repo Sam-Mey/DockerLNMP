@@ -84,7 +84,7 @@ function menu_options() {
         2)
             clear
             echo -e "${BOLD}${YELLOW} 站点部署 ${RESET}"
-            "$WEBSITE_SCRIPT_PATH"
+            "$WEBSITE_MENU_SCRIPT_PATH"
         ;;
         Q|q)
             clear

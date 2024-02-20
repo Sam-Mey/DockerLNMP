@@ -106,13 +106,6 @@ services:
         max-file: "1"
     networks:
       - lnmp-network
-    
-  jemalloc:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    depends_on:
-      - redis
 
 networks:
   lnmp-network:

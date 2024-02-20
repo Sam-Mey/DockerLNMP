@@ -21,7 +21,7 @@ WHITE=$(tput setaf 7)     # 白色
 
 RESET=$(tput sgr0)        # 重置样式
 
-# Define menu options
+# Define website_menu options
 options=(
     "${BOLD}${BLUE} 站点部署 ${RESET}"
     "${BOLD}${GREEN} SSL证书 ${RESET}\n"
@@ -29,8 +29,8 @@ options=(
     "${BOLD}${YELLOW} 返回主菜单 ${RESET}\n"
 )
 
-# Show menu
-function show_menu() {
+# Show website_menu
+function show_website_menu() {
     echo -e "${BOLD}${BLUE}———————————————————————————————— 站点部署 ———————————————————————————————— ${RESET}\n"
     for i in "${!options[@]}"; do
         if [[ $i -eq $(( ${#options[@]} - 1 )) ]]; then
@@ -42,14 +42,14 @@ function show_menu() {
 }
 
 # Handle user choice
-function menu_options() {
+function website_menu_options() {
     read -p "${BOLD}${BLUE} 请输入选项编号: ${RESET}" choice
     echo "DEBUG: User input is $choice"
     case $choice in
         1)
             clear
             echo -e "${BOLD}${BLUE} 添加站点 ${RESET}"
-            "$XXXXXXX"
+            "$ADD_SITE_SCRIPT_PATH"
         ;;
         2)
             clear
@@ -69,6 +69,6 @@ function menu_options() {
 }
 
 while true; do
-    show_menu
-    menu_options
+    show_website_menu
+    website_menu_options
 done

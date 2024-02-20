@@ -1,6 +1,6 @@
 #!/bin/bash
 
-redis_container_id=$(docker ps -qf "name=redis")
+redis_container_id=$(docker ps -aqf "name=redis")
 
 # redis exist ?
 if [ -n "$redis_container_id" ]; then

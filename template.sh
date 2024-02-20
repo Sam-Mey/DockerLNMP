@@ -32,7 +32,7 @@ options=(
 
 # Show menu
 function show_menu() {
-    echo -e "${BOLD}${BLUE}————————————————————————————————�? —————————————————————————————————— ${RESET}\n"
+    echo -e "${BOLD}${BLUE}———————————————————————————————— XX —————————————————————————————————— ${RESET}\n"
     for i in "${!options[@]}"; do
         if [[ $i -eq $(( ${#options[@]} - 1 )) ]]; then
             echo -e "${BOLD}${RED}m. ${options[$i]}${RESET}"  # q 返回选项
