@@ -120,5 +120,6 @@ done
 
 # 读取版本信息并使用 jq 解析 JSON 数据
 version=$(jq -r .version version.json)
-
-echo -e "${BOLD}${BLUE}———————————————————————————————— Current version: $version ——————————————————————————————————${RESET}\n"
+# 打印调试信息
+echo "Current version: $version"
+echo -e "${BOLD}${BLUE} ==== Current version: $version ==== ${RESET}\n"
