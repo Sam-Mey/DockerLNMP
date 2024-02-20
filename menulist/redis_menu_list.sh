@@ -27,7 +27,7 @@ options=(
     "${BOLD}${GREEN} 启用系统内存超额提交 ${RESET}"
     "${BOLD}${RED} 关闭系统内存超额提交 (默认:vm.overcommit_memory = 0) ${RESET}\n"
     
-    "${BOLD}${GRAY} 返回上一级 ${RESET}\n"
+    "${BOLD}${WHITE} 返回上一级 ${RESET}\n"
 )
 
 # Show redis_server
@@ -35,7 +35,7 @@ function show_redis_server() {
     echo -e "${BOLD}${BLUE}———————————————————————————————— Redis 服务 ———————————————————————————————— ${RESET}\n"
     for i in "${!options[@]}"; do
         if [[ $i -eq $(( ${#options[@]} - 1 )) ]]; then
-            echo -e "${BOLD}${RED}b. ${options[$i]}${RESET}"  # b back
+            echo -e "${BOLD}${WHITE}b. ${options[$i]}${RESET}"  # b back
         else
             echo -e "${BOLD}${BLUE}$((i+1)). ${options[$i]}${RESET}"
         fi
@@ -64,7 +64,7 @@ function redis_server_options() {
         ;;
         B|b)
             clear
-            echo "${BOLD}${RED} 谢谢使用，再见！ ${RESET}"
+            echo "${BOLD}${WHITE} 返回上一级 [容器服务] ${RESET}"
             exit 0
         ;;
         *)

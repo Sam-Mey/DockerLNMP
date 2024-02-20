@@ -6,17 +6,22 @@ clear
 . "/DockerLNMP/config.sh"
 
 # Define colors and styles using tput
-BOLD=$(tput bold)
-GRAY=$(tput setaf 0)
-RED=$(tput setaf 1)
-GREEN=$(tput setaf 2)
-YELLOW=$(tput setaf 3)
-BLUE=$(tput setaf 4)
-PURPLE=$(tput setaf 5)
-CYAN=$(tput setaf 6)
-WHITE=$(tput setaf 7)
+BOLD=$(tput bold)         # 粗体
+DIM=$(tput dim)           # 细体
+GRAY=$(tput setaf 0)      # 灰色
+RED=$(tput setaf 1)       # 红色
+GREEN=$(tput setaf 2)     # 绿色
+YELLOW=$(tput setaf 3)    # 黄色
+BLUE=$(tput setaf 4)      # 蓝色
+PURPLE=$(tput setaf 5)    # 紫色
+CYAN=$(tput setaf 6)      # 青色
+WHITE=$(tput setaf 7)     # 白色
 
-RESET=$(tput sgr0)
+UNDERLINE=$(tput smul): # 设置为下划线
+BLINK=$(tput blink):    # 设置为闪烁
+REVERSE=$(tput rev):    # 设置为反显
+
+RESET=$(tput sgr0)        # 重置样式
 
 # Define menu options
 options=(
@@ -94,7 +99,7 @@ function lnmp_options() {
         ;;
         B|b)
             clear
-            echo "${BOLD}${RED} 主菜单！ ${RESET}"
+            echo "${BOLD}${WHITE} 主菜单！ ${RESET}"
         ;;
         D|d)
             clear

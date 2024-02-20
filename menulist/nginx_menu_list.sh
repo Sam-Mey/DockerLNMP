@@ -27,7 +27,7 @@ options=(
     "${BOLD}${BLUE} 运行状态 ${RESET}"
     "${BOLD}${BLUE} 重新加载 ${RESET}\n"
     
-    "${BOLD}${RED} 返回上一级 ${RESET}\n"
+    "${BOLD}${WHITE} 返回上一级 ${RESET}\n"
 )
 
 # Show nginx
@@ -35,7 +35,7 @@ function show_nginx_menu_list() {
     echo -e "${BOLD}${BLUE}———————————————————————————————— Nginx 容器服务 —————————————————————————————————— ${RESET}\n"
     for i in "${!options[@]}"; do
         if [[ $i -eq $(( ${#options[@]} - 1 )) ]]; then
-            echo -e "${BOLD}${RED}b. ${options[$i]}${RESET}"  # b back
+            echo -e "${BOLD}${WHITE}b. ${options[$i]}${RESET}"  # b back
         else
             echo -e "${BOLD}${BLUE}$((i+1)). ${options[$i]}${RESET}"
         fi
@@ -67,9 +67,9 @@ function nginx_menu_list_options() {
             echo -e "${BOLD}${YELLOW} 正在加载 Nginx... ${RESET}"
             "$RESTART_NGINX_SCRIPT_PATH"
         ;;
-        M|m)
+        B|b)
             clear
-            echo "${BOLD}${RED} 谢谢使用，再见！ ${RESET}"
+            echo "${BOLD}${WHITE} 返回上一级 [容器服务] ${RESET}"
             exit 0
         ;;
         *)

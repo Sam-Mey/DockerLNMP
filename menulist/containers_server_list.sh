@@ -23,20 +23,20 @@ RESET=$(tput sgr0)
 
 # Define menu options
 options=(
-    "${BOLD}${PURPLE} Nginx >> ${RESET}"
-    "${BOLD}${PURPLE} MariaDB >> ${RESET}"
-    "${BOLD}${PURPLE} PHP >> ${RESET}"
-    "${BOLD}${PURPLE} Redis >> ${RESET}"
-    "${BOLD}${PURPLE} phpMyAdmin >> ${RESET}\n"
+    "${BOLD}${BLUE} Nginx >> ${RESET}"
+    "${BOLD}${BLUE} MariaDB >> ${RESET}"
+    "${BOLD}${BLUE} PHP >> ${RESET}"
+    "${BOLD}${BLUE} Redis >> ${RESET}"
+    "${BOLD}${BLUE} phpMyAdmin >> ${RESET}\n"
     
-    "${BOLD}${PURPLE} 返回上一级 [Docker LNMP] ${RESET}\n"
+    "${BOLD}${WHITE} 返回上一级 [Docker LNMP] ${RESET}\n"
 )
 
 function show_containers_service_menu() {
-    echo -e "${BOLD}${PURPLE}======== 容器服务 ========${RESET}\n"
+    echo -e "${BOLD}${BLUE}======== 容器服务 ========${RESET}\n"
     for i in "${!options[@]}"; do
         if [[ $i -eq $(( ${#options[@]} - 1 )) ]]; then
-            echo -e "${BOLD}${RED}b. ${options[$i]}${RESET}"  # b 返回选项
+            echo -e "${BOLD}${WHITE}b. ${options[$i]}${RESET}"  # b back
         else
             echo -e "${BOLD}${BLUE}$((i+1)). ${options[$i]}${RESET}"
         fi
@@ -75,7 +75,7 @@ function containers_service_menu_options() {
         ;;
         B|b)
             clear
-            echo -e "${BOLD}${YELLOW} Docker LNMP ${RESET}"
+            echo -e "${BOLD}${WHITE} 返回上一级 [Docker LNMP] ${RESET}"
         ;;
         *)
             clear

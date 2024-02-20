@@ -26,7 +26,7 @@ options=(
     "${BOLD}${BLUE} 站点部署 ${RESET}"
     "${BOLD}${GREEN} SSL证书 ${RESET}\n"
     
-    "${BOLD}${YELLOW} 返回主菜单 ${RESET}\n"
+    "${BOLD}${WHITE} 返回主菜单 ${RESET}\n"
 )
 
 # Show website_menu
@@ -34,7 +34,7 @@ function show_website_menu() {
     echo -e "${BOLD}${BLUE}———————————————————————————————— 站点部署 ———————————————————————————————— ${RESET}\n"
     for i in "${!options[@]}"; do
         if [[ $i -eq $(( ${#options[@]} - 1 )) ]]; then
-            echo -e "${BOLD}${YELLOW}b. ${options[$i]}${RESET}"  # b back
+            echo -e "${BOLD}${WHITE}b. ${options[$i]}${RESET}"  # b back
         else
             echo -e "${BOLD}${BLUE}$((i+1)). ${options[$i]}${RESET}"
         fi
@@ -58,7 +58,7 @@ function website_menu_options() {
         ;;
         B|b)
             clear
-            echo "${BOLD}${YELLOW} 主菜单 ${RESET}"
+            echo "${BOLD}${WHITE} 主菜单 ${RESET}"
             exit 0
         ;;
         *)

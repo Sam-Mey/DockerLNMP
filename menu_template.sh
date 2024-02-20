@@ -2,13 +2,13 @@
 
 clear
 
-# 进入脚本所在目录
+# Go to the directory where the script is located
 cd "$(dirname "$0")"
 
 # Include configuration
 . /DockerLNMP/config.sh
 
-# 定义颜色和样式，使用 tput
+# Define colors and styles using tput
 BOLD=$(tput bold)         # 粗体
 DIM=$(tput dim)           # 细体
 GRAY=$(tput setaf 0)      # 灰色
@@ -20,9 +20,9 @@ PURPLE=$(tput setaf 5)    # 紫色
 CYAN=$(tput setaf 6)      # 青色
 WHITE=$(tput setaf 7)     # 白色
 
-UNDERLINE=$(tput smul): # 设置为下划线
-BLINK=$(tput blink):    # 设置为闪烁
-REVERSE=$(tput rev):    # 设置为反显
+UNDERLINE=$(tput smul): # 下划线
+BLINK=$(tput blink):    # 闪烁
+REVERSE=$(tput rev):    # 反显
 
 RESET=$(tput sgr0)        # 重置样式
 
@@ -40,7 +40,7 @@ function show_menu() {
     echo -e "${BOLD}${BLUE}———————————————————————————————— XX —————————————————————————————————— ${RESET}\n"
     for i in "${!options[@]}"; do
         if [[ $i -eq $(( ${#options[@]} - 1 )) ]]; then
-            echo -e "${BOLD}${RED}m. ${options[$i]}${RESET}"  # q 返回选项
+            echo -e "${BOLD}${WHITE}b. ${options[$i]}${RESET}"  # b back
         else
             echo -e "${BOLD}${BLUE}$((i+1)). ${options[$i]}${RESET}"
         fi
@@ -74,7 +74,7 @@ function menu_options() {
         ;;
         B|b)
             clear
-            echo "${BOLD}${RED} 谢谢使用，再见！ ${RESET}"
+            echo "${BOLD}${WHITE} 返回上一级 ${RESET}"
             exit 0
         ;;
         *)
