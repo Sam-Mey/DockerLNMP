@@ -80,7 +80,7 @@ function lnmp_options() {
         5)
             clear
             echo -e "${BOLD}${YELLOW} 容器服务列表: ${RESET}"
-            "$CONTAINERS_MENU_LIST_SCRIPT_PATH"
+            "$CONTAINERS_SERVER_LIST_SCRIPT_PATH"
         ;;
         R|r)
             clear
