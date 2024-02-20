@@ -20,8 +20,11 @@ RESET=$(tput sgr0)        # 重置样式
 current_status=$(cat /proc/sys/vm/overcommit_memory)
 
 if [ "$current_status" -eq 1 ]; then
-    echo -e "${BOLD}${YELLOW} 当前 vm.overcommit_memory 的状态是: $current_status 表示启用了内存过度承诺 (Overcommit) 模式. ${RESET}"
-    echo -e "${BOLD}${YELLOW} 在这种模式下，内核允许分配超过系统实际可用物理内存的内存空间; 这意味着即使系统没有足够的物理内存，也可以继续分配更多的内存; 推荐 保持开启 内存超额. ${RESET}"
+    echo -e "${BOLD}${RED}——————————————————————————————————————————————————温馨提示————————————————————————————————————————————————————————————${RESET}\n"
+    echo -e "${BOLD}${YELLOW} 当前 vm.overcommit_memory 的状态是: $current_status 表示启用了内存过度承诺 (Overcommit) 模式; ${RESET}"
+    echo -e "${BOLD}${YELLOW} 在这种模式下，内核允许分配超过系统实际可用物理内存的内存空间; ${RESET}"
+    echo -e "${BOLD}${YELLOW} 这意味着即使系统没有足够的物理内存，也可以继续分配更多的内存; 推荐 保持开启 内存超额. ${RESET}"
+    echo -e "${BOLD}${RED}——————————————————————————————————————————————————温馨提示————————————————————————————————————————————————————————————${RESET}\n"
     
     read -p "${BOLD}${GREEN} 是否关闭系统内存超额提交？ (n/y) [默认为 n]: ${RESET}" user_response
     user_response=${user_response:-n}
