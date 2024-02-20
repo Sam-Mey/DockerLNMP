@@ -35,7 +35,7 @@ options=(
 )
 
 function show_lnmp_menu() {
-    echo -e "${BOLD}${BLUE}============ Docker LNMP 首页 ============${RESET}\n"
+    echo -e "${BOLD}${BLUE}============ Docker LNMP ============${RESET}\n"
     for i in "${!options[@]}"; do
         if [[ $i -eq $(( ${#options[@]} - 4 )) ]]; then
             echo -e "${BOLD}${YELLOW}r. ${options[$i]}${RESET}"  # r restart
@@ -79,8 +79,8 @@ function lnmp_options() {
         ;;
         5)
             clear
-            echo -e "${BOLD}${YELLOW} 服务列表: ${RESET}"
-            "$SERVICE_MENU_SCRIPT_PATH"
+            echo -e "${BOLD}${YELLOW} 容器服务列表: ${RESET}"
+            "$CONTAINERS_SERVICE_MENU_SCRIPT_PATH"
         ;;
         R|r)
             clear
