@@ -21,27 +21,35 @@ lnmp_allimages_id=$(docker images -q)
 lnmp_allnetwork_id=$(docker network ls -q)
 
 lnmp_container() {
-    local allcontainer_id=$lnmp_allcontainer_id
-    local allimages_id=$lnmp_allimages_id
+    local allcontainer_ids=($lnmp_allcontainer_id)
+    local allimages_ids=($lnmp_allimages_id)
     local allnetwork_id=$lnmp_allnetwork_id
     
     read -p "$(echo -e "${BOLD}${YELLOW} 此操作仅卸载所有创建的容器、镜像、网络，并不是卸载 Docker! 是否确认卸载整个 LNMP 环境? (默认为N) | [N/y]: ${RESET}")" -i "N" answer
     
     if [ "${answer,,}" = "y" ]; then
-        echo -e "${BOLD}${GRAY} 正在卸载 LNMP 环境... ${RESET}"
+        echo -e "${BOLD}${RED} 正在卸载 LNMP 环境... ${RESET}"
         
-        if docker inspect "$allcontainer_id" > /dev/null 2>&1; then
-            docker stop $allcontainer_id
-            docker rm $allcontainer_id
-        fi
+        # 停止并删除所有容器
+        for container_id in "${allcontainer_ids[@]}"; do
+            if docker inspect "$container_id" > /dev/null 2>&1; then
+                echo "Stopping container: $container_id"
+                docker stop "$container_id"
+                echo "Removing container: $container_id"
+                docker rm "$container_id"
+            fi
+        done
         
-        if docker inspect "$allimages_id" > /dev/null 2>&1; then
-            docker rmi $allimages_id
-        fi
+        # 删除所有镜像
+        for image_id in "${allimages_ids[@]}"; do
+            if docker inspect "$image_id" > /dev/null 2>&1; then
+                echo "Removing image: $image_id"
+                docker rmi "$image_id"
+            fi
+        done
         
-        if docker inspect "$allnetwork_id" > /dev/null 2>&1; then
-            echo "y" | docker network prune
-        fi
+        # 清理网络
+        echo "y" | docker network prune
         
         echo -e "${BOLD}${GREEN} LNMP 环境已成功卸载 ${RESET}"
         return 0  # Success
