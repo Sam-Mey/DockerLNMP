@@ -2,7 +2,7 @@
 
 clear
 
-cd "$(dirname "$0")"
+# cd "$(dirname "$0")"
 
 # Include configuration
 . "/DockerLNMP/config.sh"
@@ -35,7 +35,7 @@ function show_service_menu() {
     echo -e "${BOLD}${PURPLE}======== 服务 ========${RESET}\n"
     for i in "${!options[@]}"; do
         if [[ $i -eq $(( ${#options[@]} - 1 )) ]]; then
-            echo -e "${BOLD}${RED}m. ${options[$i]}${RESET}"  # q 返回选项
+            echo -e "${BOLD}${RED}b. ${options[$i]}${RESET}"  # b 返回选项
         else
             echo -e "${BOLD}${BLUE}$((i+1)). ${options[$i]}${RESET}"
         fi
@@ -86,7 +86,7 @@ function service_options() {
 while true; do
     show_service_menu
     service_options
-    if [[ $choice == "m" || $choice == "M" ]]; then
-        break
-    fi
+    # if [[ $choice == "m" || $choice == "M" ]]; then
+    #     break
+    # fi
 done
