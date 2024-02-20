@@ -85,7 +85,7 @@ function service_options() {
 
 while true; do
     show_service_menu
-    service_options
+    menu_options
     # if [[ $choice == "m" || $choice == "M" ]]; then
     #     break
     # fi

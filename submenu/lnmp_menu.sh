@@ -30,7 +30,7 @@ options=(
     "${BOLD}${YELLOW} 重启 LNMP 服务 ${RESET}"
     "${BOLD}${RED} 停止 LNMP 服务 ${RESET}\n"
     
-    "${BOLD}${WHITE} 返回主菜单 ${RESET}"
+    "${BOLD}${RED} 返回主菜单 ${RESET}"
     "${BOLD}${GRAY} 卸载 Docker LNMP 环境 ${RESET}\n"
 )
 
@@ -94,7 +94,7 @@ function lnmp_options() {
         ;;
         B|b)
             clear
-            echo "${BOLD}${WHITE} 主菜单！ ${RESET}"
+            echo "${BOLD}${RED} 主菜单！ ${RESET}"
         ;;
         D|d)
             clear
