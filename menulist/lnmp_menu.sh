@@ -25,7 +25,7 @@ options=(
     "${BOLD}${PURPLE} 启动状态 ${RESET}"
     "${BOLD}${PURPLE} 运行日志 ${RESET}"
     "${BOLD}${PURPLE} 镜像网络 ${RESET}"
-    "${BOLD}${PURPLE} 服务 >> ${RESET}\n"
+    "${BOLD}${PURPLE} 容器服务 >> ${RESET}\n"
     
     "${BOLD}${YELLOW} 重启 LNMP 服务 ${RESET}"
     "${BOLD}${RED} 停止 LNMP 服务 ${RESET}\n"
@@ -80,12 +80,12 @@ function lnmp_options() {
         5)
             clear
             echo -e "${BOLD}${YELLOW} 容器服务列表: ${RESET}"
-            "$CONTAINERS_SERVICE_MENU_SCRIPT_PATH"
+            "$CONTAINERS_MENU_LIST_SCRIPT_PATH"
         ;;
         R|r)
             clear
             echo -e "${BOLD}${WHITE} 正在重启所有容器... ${RESET}"
-            "$RESTART_SERVER_SCRIPT_PATH"
+            "$RESTART_ALLCONTIANERS_SERVER_SCRIPT_PATH"
         ;;
         S|s)
             clear
