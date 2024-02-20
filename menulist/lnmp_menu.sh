@@ -69,7 +69,7 @@ function lnmp_options() {
         3)
             clear
             echo -e "${BOLD}${YELLOW} 当前所有容器运行日志： ${RESET}"
-            cd /DockerLNMP/lnmp/build && docker-compose logs
+            # cd /DockerLNMP/lnmp/build && docker-compose logs
         ;;
         4)
             clear
