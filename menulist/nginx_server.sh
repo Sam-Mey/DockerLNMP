@@ -24,10 +24,10 @@ RESET=$(tput sgr0)
 options=(
     "${BOLD}${BLUE} 查看配置文件 ${RESET}"
     "${BOLD}${BLUE} 查看日志 ${RESET}"
-    "${BOLD}${BLUE} 运行状�?${RESET}"
+    "${BOLD}${BLUE} 运行状态 ${RESET}"
     "${BOLD}${BLUE} 重新加载 ${RESET}\n"
     
-    "${BOLD}${RED} 返回上一�?${RESET}\n"
+    "${BOLD}${RED} 返回上一级 ${RESET}\n"
 )
 
 # Show nginx
@@ -35,7 +35,7 @@ function show_nginx_menu() {
     echo -e "${BOLD}${BLUE}———————————————————————————————— Nginx 容器服务 —————————————————————————————————— ${RESET}\n"
     for i in "${!options[@]}"; do
         if [[ $i -eq $(( ${#options[@]} - 1 )) ]]; then
-            echo -e "${BOLD}${RED}m. ${options[$i]}${RESET}"  # m 返回选项
+            echo -e "${BOLD}${RED}b. ${options[$i]}${RESET}"  # b back
         else
             echo -e "${BOLD}${BLUE}$((i+1)). ${options[$i]}${RESET}"
         fi

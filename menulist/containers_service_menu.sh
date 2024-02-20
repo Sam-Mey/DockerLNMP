@@ -2,7 +2,8 @@
 
 clear
 
-# cd "$(dirname "$0")"
+# 进入脚本所在目录
+cd "$(dirname "$0")"
 
 # Include configuration
 . "/DockerLNMP/config.sh"
@@ -32,7 +33,7 @@ options=(
 )
 
 function show_containers_service_menu() {
-    echo -e "${BOLD}${PURPLE}======== 服务 ========${RESET}\n"
+    echo -e "${BOLD}${PURPLE}======== 容器服务 ========${RESET}\n"
     for i in "${!options[@]}"; do
         if [[ $i -eq $(( ${#options[@]} - 1 )) ]]; then
             echo -e "${BOLD}${RED}b. ${options[$i]}${RESET}"  # b 返回选项
@@ -86,7 +87,4 @@ function containers_service_menu_options() {
 while true; do
     show_containers_service_menu
     containers_service_menu_options
-    # if [[ $choice == "b" || $choice == "B" ]]; then
-    #     break
-    # fi
 done
