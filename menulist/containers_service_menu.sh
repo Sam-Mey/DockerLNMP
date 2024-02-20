@@ -31,7 +31,7 @@ options=(
     "${BOLD}${PURPLE} 返回上一级 [Docker LNMP] ${RESET}\n"
 )
 
-function show_service_menu() {
+function show_containers_service_menu() {
     echo -e "${BOLD}${PURPLE}======== 服务 ========${RESET}\n"
     for i in "${!options[@]}"; do
         if [[ $i -eq $(( ${#options[@]} - 1 )) ]]; then
@@ -43,7 +43,7 @@ function show_service_menu() {
 }
 
 # Handle user choice
-function service_options() {
+function containers_service_menu_options() {
     read -p "${BOLD}${BLUE} 请输入选项编号: ${RESET}" choice
     echo "DEBUG: User input is $choice"  # debug
     case $choice in
@@ -84,8 +84,8 @@ function service_options() {
 }
 
 while true; do
-    show_service_menu
-    service_menu_options
+    show_containers_service_menu
+    containers_service_menu_options
     # if [[ $choice == "b" || $choice == "B" ]]; then
     #     break
     # fi
