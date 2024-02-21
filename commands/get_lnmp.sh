@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# 定义 countdown 函数
+# Define countdown function
 function countdown {
     local seconds=$1
     
@@ -27,34 +27,33 @@ WHITE=$(tput setaf 7)
 
 RESET=$(tput sgr0)
 
-# 定义数据库容器
 database_containers=("mysql" "mariadb" "mongodb" "sqlite")
 
-# 定义 LNMP 容器
-containers=("nginx" "${database_containers[@]}" "php" "redis" "phpmyadmin" "jemalloc")
+# Define LNMP container
+containers=("nginx" "${database_containers[@]}" "php" "redis" "phpmyadmin")
 
-# 标记 LNMP 容器是否存在
+# Mark whether the LNMP container exists
 lnmp_containers_exist=true
 
-# 标记数据库容器是否存在
+# Mark whether the database container exists
 database_container_exist=false
 
-# 遍历检查 LNMP 容器是否存在
+# Traverse to check whether the LNMP container exists
 for container in "${containers[@]}"; do
     if [ "$container" == "nginx" ] || [ "$container" == "php" ] || [ "$container" == "redis" ] || [ "$container" == "phpmyadmin" ]; then
-        # 对于 "nginx" "php" "redis" "phpmyadmin" 这四个容器，检查是否存
+        # For the four containers "nginx" "php" "redis" "phpmyadmin", check whether they exist
         if ! docker ps -a --format '{{.Names}}' | grep -q "$container"; then
             lnmp_containers_exist=false
         fi
     else
-        # 对于数据库容器，只要有一个存在，就标记为存在
+        # For database containers, as long as one exists, it is marked as existing.
         if docker ps -a --format '{{.Names}}' | grep -q "$container"; then
             database_container_exist=true
         fi
     fi
 done
 
-# 判断 LNMP 容器是否存在且数据库容器存在
+# Determine whether the LNMP container exists and the database container exists
 if [ "$lnmp_containers_exist" = true ] && [ "$database_container_exist" = true ]; then
     echo "${BOLD}${YELLOW} LNMP 环境已创建 ${RESET}"
     echo "${BOLD}${YELLOW} 包含以下容器: ${RESET}"

@@ -3,7 +3,7 @@
 # Include configuration
 . /DockerLNMP/config.sh
 
-# 定义颜色和样式，使用 tput
+# Define colors and styles using tput
 BOLD=$(tput bold)         # 粗体
 DIM=$(tput dim)           # 细体
 GRAY=$(tput setaf 0)      # 灰色
@@ -21,7 +21,7 @@ REVERSE=$(tput rev):    # 设置为反显
 
 RESET=$(tput sgr0)        # 重置样式
 
-# 获取所有Docker容器的ID，包括停止状态的容器
+# Get the IDs of all Docker containers, including stopped containers
 lnmp_allcontainer_ids=$(docker ps -a -q)
 lnmp_allimages_ids=$(docker images -q)
 lnmp_allnetwork_ids=$(docker network ls --format="{{.ID}} {{.Name}}" | grep -v 'bridge\|host\|none' | awk '{print $1}')

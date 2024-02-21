@@ -3,7 +3,7 @@
 # Include configuration
 . /DockerLNMP/config.sh
 
-# 定义颜色和样式，使用 tput
+# Define colors and styles, use tput
 BOLD=$(tput bold)         # 粗体
 DIM=$(tput dim)           # 细体
 GRAY=$(tput setaf 0)      # 灰色

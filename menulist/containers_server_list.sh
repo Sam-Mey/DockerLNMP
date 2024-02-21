@@ -2,7 +2,7 @@
 
 clear
 
-# 进入脚本所在目录
+# Enter the directory where the script is located
 cd "$(dirname "$0")"
 
 # Include configuration

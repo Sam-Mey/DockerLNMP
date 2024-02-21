@@ -8,10 +8,10 @@ clear
 # # debug working pwd
 # echo "Current working directory: $(pwd)"
 
-# 设置脚本所在目录为当前工作目录
+# Set the directory where the script is located to the current working directory
 cd "$(dirname "${BASH_SOURCE[0]}")" || exit
 
-# 打印执行 cd 命令（改变当前工作目录）之后，输出改变后的当前工作目�?
+# 打印执行 cd 命令（改变当前工作目录）之后，输出改变后的当前工作目录
 # echo "Current working directory after cd: $(pwd)"
 
 # Include configuration

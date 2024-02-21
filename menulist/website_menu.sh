@@ -2,13 +2,13 @@
 
 clear
 
-# 进入脚本所在目录
+# Enter the directory where the script is located
 cd "$(dirname "$0")"
 
 # Include configuration
 . /DockerLNMP/config.sh
 
-# 定义颜色和样式，使用 tput
+# Define colors and styles, use tput
 BOLD=$(tput bold)        # 粗体
 GRAY=$(tput setaf 0)      # 灰色
 RED=$(tput setaf 1)       # 红色

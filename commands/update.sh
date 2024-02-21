@@ -1,36 +1,36 @@
 #!/bin/bash
 
-# 保存当前目录
+# Save the current directory
 current_dir=$(pwd)
 
-# 克隆远程仓库
+# Clone remote repository
 git clone https://github.com/Sam-Mey/DockerLNMP.git tmp_DockerLNMP
 
-# 切换�?DockerLNMP目录
+# Switch to the DockerLNMP directory
 cd /DockerLNMP || exit
 
-# 拉取远程仓库的最新变�?
+# Pull the latest changes from the remote warehouse
 git fetch --quiet origin
 
-# 重置本地仓库到最新的提交
+# Reset the local repository to the latest commit
 git reset --quiet --hard origin/main
 
-# 将所�?.sh 文件添加执行权限
+# Add execution permissions to all .sh files
 find . -name "*.sh" -exec chmod +x {} \;
 
-# 创建符号链接，使�?'dlnmp' 命令指向 menu.sh
+# Create a symbolic link so that the 'dlnmp' command points to menu.sh
 ln -sf "/DockerLNMP/menu.sh" "/usr/local/bin/dlnmp"
 
-# 用最新内容替换当前目录的文件
+# Replace the files in the current directory with the latest content
 rsync -av --exclude='.git' tmp_DockerLNMP/ .
 
-# 切换回原始目�?
+# Switch back to the original directory
 cd "$current_dir" || exit
 
-# 清理临时目录
+# Clean up the temporary directory
 rm -rf tmp_DockerLNMP
 
-# 运行 'dlnmp' 命令（确�?'dlnmp' 在这一步之前已经设置好�?
+# Run the 'dlnmp' command (make sure 'dlnmp' has been set before this step)
 dlnmp
 
 # debug
