@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Include configuration
+. "/DockerLNMP/config.sh"
+
 # Function to recursively find docker-compose.yml files
 find_docker_compose_files() {
     find "$1" -type f -name "docker-compose.yml"

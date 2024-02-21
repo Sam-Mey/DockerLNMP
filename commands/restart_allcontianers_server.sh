@@ -27,7 +27,6 @@ nginx_container_id=$(docker ps -aqf "name=nginx")
 php_container_id=$(docker ps -aqf "name=php")
 phpmyadmin_container_id=$(docker ps -aqf "name=phpmyadmin")
 redis_container_id=$(docker ps -aqf "name=redis")
-jemalloc_container_id=$(docker ps -aqf "name=jemalloc") # About Redis memory allocator
 
 # Function to restart container
 restart_container() {
@@ -52,7 +51,7 @@ for container_id in $database_container_id; do
 done
 
 # Restart other containers
-all_containers=($nginx_container_id $php_container_id $phpmyadmin_container_id $redis_container_id $jemalloc_container_id)
+all_containers=($nginx_container_id $php_container_id $phpmyadmin_container_id $redis_container_id)
 success_count=0
 
 for container_id in "${all_containers[@]}"; do
