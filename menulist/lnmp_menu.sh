@@ -25,12 +25,12 @@ RESET=$(tput sgr0)        # 重置样式
 
 # Define menu options
 options=(
-    "${BOLD}${PURPLE} 安装 Docker LNMP 环境 ${RESET}\n"
+    "${BOLD}${CYAN} 安装 Docker LNMP 环境 ${RESET}\n"
     
-    "${BOLD}${PURPLE} 启动状态 ${RESET}"
-    "${BOLD}${PURPLE} 运行日志 ${RESET}"
-    "${BOLD}${PURPLE} 镜像网络 ${RESET}"
-    "${BOLD}${PURPLE} 容器服务 >> ${RESET}\n"
+    "${BOLD}${CYAN} 启动状态 ${RESET}"
+    "${BOLD}${CYAN} 运行日志 ${RESET}"
+    "${BOLD}${CYAN} 镜像网络 ${RESET}"
+    "${BOLD}${CYAN} 容器服务 >> ${RESET}\n"
     
     "${BOLD}${YELLOW} 重启 LNMP 服务 ${RESET}"
     "${BOLD}${RED} 停止 LNMP 服务 ${RESET}\n"
@@ -40,7 +40,7 @@ options=(
 )
 
 function show_lnmp_menu() {
-    echo -e "${BOLD}${BLUE}============ Docker LNMP ============${RESET}\n"
+    echo -e "${BOLD}${CYAN}============ Docker LNMP ============${RESET}\n"
     for i in "${!options[@]}"; do
         if [[ $i -eq $(( ${#options[@]} - 4 )) ]]; then
             echo -e "${BOLD}${YELLOW}r. ${options[$i]}${RESET}"  # r restart
@@ -74,7 +74,7 @@ function lnmp_options() {
         3)
             clear
             echo -e "${BOLD}${YELLOW} 当前所有容器运行日志： ${RESET}"
-            # cd /DockerLNMP/lnmp/build && docker-compose logs
+            cd /DockerLNMP/lnmp/build && docker-compose logs
         ;;
         4)
             clear
