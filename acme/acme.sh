@@ -39,8 +39,8 @@ RESET=$(tput sgr0)        # 重置样式
 
 # Define menu options
 options=(
-    "${BOLD}${PURPLE} Ubuntu/Debian ${RESET}\n"
-    "${BOLD}${PURPLE} CentOS ${RESET}"
+    "${BOLD}${PURPLE} Ubuntu/Debian ${RESET}"
+    "${BOLD}${PURPLE} CentOS ${RESET}\n"
     
     "${BOLD}${WHITE} 返回上一级 [Website] ${RESET}\n"
 )
