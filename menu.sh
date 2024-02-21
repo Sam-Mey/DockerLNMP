@@ -39,18 +39,18 @@ echo -e "\033[96m	| |/ /\ \_/ / \__/\| |\  \| |___| |\ \      | |____| |\  || | 
 echo -e "\033[96m	|___/  \___/ \____/\_| \_/\____/\_| \_\     |_____/\_| \_/\_|  |_/\_|    	\033[0m"
 echo -e "\033[96m                                                                               \033[0m"
 echo -e "${BOLD}${YELLOW} 温馨提示                                                              ${RESET}\n"
-echo -e "${BOLD}${YELLOW}       目前环境仅支持 Ubuntu Debian arm64 系统;                         ${RESET}"
-echo -e "${BOLD}${YELLOW}       amd 及其他系待测试..                                             ${RESET}"
-echo -e "${BOLD}${YELLOW}       安装完成后，再次使用命令行键入 'dlnmp' 调出菜单                    ${RESET}\n"
+echo -e "${BOLD}${YELLOW}       目前环境仅支持 Ubuntu Debian arm64 系统;                        ${RESET}"
+echo -e "${BOLD}${YELLOW}       amd 及其他系待测试..                                            ${RESET}"
+echo -e "${BOLD}${YELLOW}       安装完成后，再次使用命令行键入 'dlnmp' 调出菜单                  ${RESET}\n"
 
 # Define menu options
 options=(
     "${BOLD}${BLUE} Docker LNMP >> ${RESET}"
     "${BOLD}${BLUE} Website >> ${RESET}\n"
     
-    "${BOLD}${RED} 退出脚本 ${RESET}"
-    "${BOLD}${GREEN} 更新脚本 ${RESET}"
-    "${BOLD}${GRAY} 卸载脚本 ${RESET}"
+    "${BOLD}${RED} 退出 ${RESET}"
+    "${BOLD}${GREEN} 更新 ${RESET}"
+    "${BOLD}${GRAY} 卸载 ${RESET}"
 )
 
 # Show menu
