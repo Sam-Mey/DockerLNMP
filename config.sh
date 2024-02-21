@@ -6,6 +6,9 @@ cd "$(dirname "${BASH_SOURCE[0]}")"
 # script working path
 SCRIPT_DIR="/DockerLNMP"
 
+ACME_SCRIPT_PATH="$SCRIPT_DIR/commands/acme/acme.sh"
+ACME_CENTOS_SCRIPT_PATH="$SCRIPT_DIR/commands/acme/acme_centos.sh"
+ACME_UBUNTU_DEBIAN_SCRIPT_PATH="$SCRIPT_DIR/commands/acme/acme_ubuntu_debian.sh"
 ADD_SITE_SCRIPT_PATH="$SCRIPT_DIR/commands/website/add_site.sh"
 ARM64_SCRIPT_PATH="$SCRIPT_DIR/docker/arm64.sh"
 CENTOS_SCRIPT_PATH="$SCRIPT_DIR/docker/centos.sh"
@@ -52,6 +55,9 @@ WEBSITE_MENU_SCRIPT_PATH="$SCRIPT_DIR/menulist/website_menu.sh"
 # other config...
 
 # # path debug
+# echo "ACME_SCRIPT_PATH: $ACME_SCRIPT_PATH"
+# echo "ACME_CENTOS_SCRIPT_PATH: $ACME_CENTOS_SCRIPT_PATH"
+# echo "ACME_UBUNTU_DEBIAN_SCRIPT_PATH: $ACME_UBUNTU_DEBIAN_SCRIPT_PATH"
 # echo "ADD_SITE_SCRIPT_PATH: $ADD_SITE_SCRIPT_PATH"
 # echo "ARM64_SCRIPT_PATH: $ARM64_SCRIPT_PATH"
 # echo "CENTOS_SCRIPT_PATH: $CENTOS_SCRIPT_PATH"

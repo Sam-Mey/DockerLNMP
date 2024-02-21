@@ -1,5 +1,16 @@
 #!/bin/bash
 
+# Requires root permissions
+root_need() {
+    if [[ $EUID -ne 0 ]]; then
+        echo -e "\033[31m 错误:该脚本必须以 root 身份运行! \033[0m" 1>&2
+        exit 1
+    fi
+}
+
+# Call functions
+root_need
+
 clear
 
 # Enter the directory where the script is located

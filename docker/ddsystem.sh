@@ -12,7 +12,6 @@ function countdown {
 }
 
 sudo apt-get update
-
 countdown 3
 
 sudo apt-get install apt-transport-https \
@@ -25,7 +24,6 @@ echo \
 $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list
 sudo apt-get update
 sudo apt-get install docker-ce docker-ce-cli containerd.io
-
 countdown 3
 
 systemctl start docker
@@ -33,11 +31,9 @@ systemctl enable docker
 
 # docker-compose
 curl -fsSL https://get.docker.com | bash -s docker
-
 countdown 3
 
 curl -L "https://github.com/docker/compose/releases/download/1.26.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-
 countdown 3
 
 chmod +x /usr/local/bin/docker-compose

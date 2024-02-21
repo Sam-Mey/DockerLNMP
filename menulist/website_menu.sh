@@ -54,7 +54,7 @@ function website_menu_options() {
         2)
             clear
             echo -e "${BOLD}${GREEN} 申请证书 ${RESET}"
-            "$XXXXXX"
+            "$ACME_SCRIPT_PATH"
         ;;
         B|b)
             clear

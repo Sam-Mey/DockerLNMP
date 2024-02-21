@@ -7,6 +7,10 @@ root_need(){
         exit 1
     fi
 }
+
+# Call functions
+root_need
+
 cd /
 
 # Clone the repository
