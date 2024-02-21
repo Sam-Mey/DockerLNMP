@@ -96,14 +96,7 @@ function menu_options() {
         ;;
         D|d)
             clear
-            read -p "$(echo -e "${BOLD}${YELLOW}是否确认卸载脚本? (默认为N) | [N/y]: ${RESET}")" -i "N" answer
-            if [ "${answer,,}" = "y" ]; then
-                echo -e "${BOLD}${RED} 正在卸载脚本... ${RESET}"
-                "$UNINSTALL_SCRIPT_PATH"
-                exit 0
-            else
-                echo -e "${BOLD}${YELLOW} 脚本卸载已取 ${RESET}"
-            fi
+            "$UNINSTALL_SCRIPT_PATH"
         ;;
         *)
             clear

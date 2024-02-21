@@ -13,31 +13,39 @@ WHITE=$(tput setaf 7)
 
 RESET=$(tput sgr0)
 
-# 在根目录下递归查找名为 "DockerLNMP" �?"dlnmp" 的文件夹
-result_DockerLNMP=$(find / -type d -name "DockerLNMP" 2>/dev/null)
-result_dlnmp=$(find / -type d -name "dlnmp" 2>/dev/null)
-
-if [ -n "$result_DockerLNMP" ] || [ -n "$result_dlnmp" ]; then
-    # Found 'DockerLNMP' or 'dlnmp' folder(s) at:
-    echo "${BOLD}${RED} 发现 'DockerLNMP' 或 'dlnmp' 文件夹（目录）在：${RESET}"
+read -p "$(echo -e "${BOLD}${YELLOW}是否确认卸载脚本? (默认为N) | [N/y]: ${RESET}")" -i "N" answer
+if [ "${answer,,}" = "y" ]; then
+    echo -e "${BOLD}${RED} 正在卸载脚本... ${RESET}"
+    # Recursively look for a folder named "DockerLNMP" or "dlnmp" in the root directory
+    result_DockerLNMP=$(find / -type d -name "DockerLNMP" 2>/dev/null)
+    result_dlnmp=$(find / -type d -name "dlnmp" 2>/dev/null)
     
-    [ -n "$result_DockerLNMP" ] && echo "${BOLD}${RED} $result_DockerLNMP ${RESET}"
-    [ -n "$result_dlnmp" ] && echo "${BOLD}${RED} $result_dlnmp ${RESET}"
-    
-    # 确认用户是否要删�?
-    read -p "${BOLD}${YELLOW}是否要删除这些文件夹？ (Y/N): ${RESET}" confirmation
-    if [ "$confirmation" == "Y" ] || [ "$confirmation" == "y" ]; then
-        # 删除 'DockerLNMP' 与 'dlnmp' 文件夹 ?
-        [ -n "$result_DockerLNMP" ] && rm -rf "$result_DockerLNMP"
-        [ -n "$result_dlnmp" ] && rm -rf "$result_dlnmp"
+    if [ -n "$result_DockerLNMP" ] || [ -n "$result_dlnmp" ]; then
+        # Found 'DockerLNMP' or 'dlnmp' folder(s) at:
+        echo "${BOLD}${RED} 发现 'DockerLNMP' 或 'dlnmp' 文件夹（目录）在：${RESET}"
         
-        # 删除 '/usr/local/bin/dlnmp' 链接
-        rm -f /usr/local/bin/dlnmp
+        [ -n "$result_DockerLNMP" ] && echo "${BOLD}${RED} $result_DockerLNMP ${RESET}"
+        [ -n "$result_dlnmp" ] && echo "${BOLD}${RED} $result_dlnmp ${RESET}"
         
-        echo "${BOLD}${RED} 删除了 'DockerLNMP' 主体 和 'dlnmp' 快捷方式. ${RESET}"
+        # confirm deletion ?
+        read -p "${BOLD}${YELLOW}是否要删除这些文件夹？ (Y/N): ${RESET}" confirmation
+        if [ "$confirmation" == "Y" ] || [ "$confirmation" == "y" ]; then
+            # Delete 'DockerLNMP' and 'dlnmp' folders?
+            [ -n "$result_DockerLNMP" ] && rm -rf "$result_DockerLNMP"
+            [ -n "$result_dlnmp" ] && rm -rf "$result_dlnmp"
+            
+            # Remove '/usr/local/bin/dlnmp' link
+            rm -f /usr/local/bin/dlnmp
+            
+            echo "${BOLD}${RED} 删除了 'DockerLNMP' 主体 和 'dlnmp' 快捷方式. ${RESET}"
+        else
+            echo "${BOLD}${GREEN} 取消了删除操作 ${RESET}"
+        fi
     else
-        echo "${BOLD}${GREEN} 取消了删除操作 ${RESET}"
+        echo "${BOLD}${RED} 在任何目录中找不到关于 'DockerLNMP' 或 'dlnmp' 文件夹 ${RESET}"
     fi
+    
+    exit 0
 else
-    echo "${BOLD}${RED} 在任何目录中找不到关于 'DockerLNMP' 或 'dlnmp' 文件夹 ${RESET}"
+    echo -e "${BOLD}${YELLOW} 脚本卸载已取 ${RESET}"
 fi
