@@ -51,14 +51,14 @@ function show_lnmp_menu() {
             elif [[ $i -eq $(( ${#options[@]} -1 )) ]]; then
             echo -e "${BOLD}${GRAY}d. ${options[$i]}${RESET}"   # d del
         else
-            echo -e "${BOLD}${PURPLE}$((i+1)). ${options[$i]}${RESET}"
+            echo -e "${BOLD}${CYAN}$((i+1)). ${options[$i]}${RESET}"
         fi
     done
 }
 
 # Handle user choice
-function lnmp_options() {
-    read -p "${BOLD}${BLUE} 请输入选项编号: ${RESET}" choice
+function lnmp_menu_options() {
+    read -p "${BOLD}${CYAN} 请输入选项编号: ${RESET}" choice
     echo "DEBUG: User input is $choice"  # debug
     case $choice in
         1)
@@ -114,7 +114,7 @@ function lnmp_options() {
 
 while true; do
     show_lnmp_menu
-    lnmp_options
+    lnmp_menu_options
     if [[ $choice == "b" || $choice == "B" ]]; then
         break
     fi
