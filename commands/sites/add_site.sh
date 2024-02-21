@@ -14,7 +14,7 @@ RESET=$(tput sgr0)
 read -r -p "${BOLD}${GREEN}请输入站点域名: ${RESET}" site_domain
 
 # 指定站点文件夹路径
-base_path="/DockerLNMP/www/sites"
+base_path="/var/www/html"
 
 # 检查文件夹是否存在，如果不存在则创建
 site_folder="$base_path/$site_domain"
