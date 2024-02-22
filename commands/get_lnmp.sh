@@ -80,5 +80,5 @@ else
     echo "${BOLD}${YELLOW} [创建 LNMP 环境] ... ${RESET}"
     
     countdown 10
-    "$COMMAND_SCRIPT_PATH"
+    "$RUN_LNMP_SCRIPT_PATH"
 fi
