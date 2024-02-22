@@ -3,22 +3,26 @@
 # # setdebug
 # set -x
 
-#!/bin/bash
 
 # 读取版本信息
 VERSION_INFO=$(cat version.json)
 
 # 从 JSON 中提取版本号
-VERSION=$(echo $VERSION_INFO | jq -r '.version')
+VERSION=$(echo $VERSION_INFO | grep -o '"version": *"[^"]*"' | awk -F'"' '{print $4}')
 
 # 输出版本信息
 echo "Version: $VERSION"
 
-# 其他操作，比如打印发布日期和作者
-RELEASE_DATE=$(echo $VERSION_INFO | jq -r '.release_date')
-AUTHOR=$(echo $VERSION_INFO | jq -r '.author')
+# 从 JSON 中提取发布日期
+RELEASE_DATE=$(echo $VERSION_INFO | grep -o '"release_date": *"[^"]*"' | awk -F'"' '{print $4}')
 
+# 输出发布日期
 echo "Release Date: $RELEASE_DATE"
+
+# 从 JSON 中提取作者
+AUTHOR=$(echo $VERSION_INFO | grep -o '"author": *"[^"]*"' | awk -F'"' '{print $4}')
+
+# 输出作者信息
 echo "Author: $AUTHOR"
 
 
