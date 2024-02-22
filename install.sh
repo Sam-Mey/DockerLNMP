@@ -20,12 +20,12 @@ git clone https://github.com/Sam-Mey/DockerLNMP.git
 find /DockerLNMP -name "*.sh" -exec chmod +x {} \;
 
 # Create a symbolic link for menu.sh
-ln -s "/DockerLNMP/menu.sh" "/usr/local/bin/dlnmp"
+ln -s "/DockerLNMP/menu.sh" "/usr/local/bin/lnmp"
 
 # Check if it's not being run for removal
 if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
     rm -rf /root/install.sh
 fi
 
-# Run 'dlnmp' command (make sure 'et' is set up before this point)
-dlnmp
+# Run 'lnmp' command (make sure 'et' is set up before this point)
+lnmp
