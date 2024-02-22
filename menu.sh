@@ -3,9 +3,8 @@
 # # setdebug
 # set -x
 
-
 # 读取版本信息
-VERSION_INFO=$(cat version.json)
+VERSION_INFO=$(cat DockerLNMP/version.json)
 
 # 从 JSON 中提取版本号
 VERSION=$(echo $VERSION_INFO | grep -o '"version": *"[^"]*"' | awk -F'"' '{print $4}')
@@ -24,6 +23,7 @@ AUTHOR=$(echo $VERSION_INFO | grep -o '"author": *"[^"]*"' | awk -F'"' '{print $
 
 # 输出作者信息
 echo "Author: $AUTHOR"
+
 
 
 
