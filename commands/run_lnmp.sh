@@ -7,19 +7,19 @@ git clone https://github.com/Sam-Mey/DockerLNMP.git
 # Copy certs directory to nginx server
 # cp -r root/certs /DockerLNMP/www/server/nginx
 
-# Change directory to the build folder
-cd /DockerLNMP/lnmp/build
+# Change directory to the  folder
+cd /DockerLNMP/lnmp
 
 # Clone necessary repositories
-git clone https://github.com/nginxinc/docker-nginx.git
-git clone https://github.com/MariaDB/mariadb-docker.git
-mv mariadb-docker docker-mariadb
-git clone https://github.com/docker-library/php.git
-mv php docker-php
-git clone https://github.com/docker-library/redis.git
-mv redis docker-redis
-git clone https://github.com/phpmyadmin/docker.git
-mv docker docker-phpmyadmin
+# git clone https://github.com/nginxinc/docker-nginx.git
+# git clone https://github.com/MariaDB/mariadb-docker.git
+# mv mariadb-docker docker-mariadb
+# git clone https://github.com/docker-library/php.git
+# mv php docker-php
+# git clone https://github.com/docker-library/redis.git
+# mv redis docker-redis
+# git clone https://github.com/phpmyadmin/docker.git
+# mv docker docker-phpmyadmin
 
 # Set execute permissions for shell scripts
 find /DockerLNMP -name "*.sh" -exec chmod +x {} \;
@@ -27,8 +27,8 @@ find /DockerLNMP -name "*.sh" -exec chmod +x {} \;
 # Set execute permissions for DockerLNMP directory
 chmod -R +x /DockerLNMP
 
-# Change directory to DockerLNMP build
-cd /DockerLNMP/lnmp/build
+# Change directory to DockerLNMP 
+cd /DockerLNMP/lnmp
 
 # Bring up the Docker Compose environment
 docker-compose -f docker-compose.yml up
