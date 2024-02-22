@@ -3,7 +3,7 @@ version: "3"
 services:
   nginx:
     build:
-      context: ./docker-nginx/mainline/debian
+      context: ./nginx/mainline/debian
       dockerfile: Dockerfile
     ports:
       - "80:80"
@@ -24,7 +24,7 @@ services:
 
   php:
     build:
-      context: ./docker-php/8.3/bookworm/fpm
+      context: ./php/8.3/bookworm/fpm
       dockerfile: Dockerfile
     logging:
       driver: "json-file"
@@ -39,7 +39,7 @@ services:
 
   mariadb:
     build:
-      context: ./docker-mariadb/11.2
+      context: ./mariadb/11.2
       dockerfile: Dockerfile
     environment:
       MARIADB_ROOT_PASSWORD: "${TESTSUITE_PASSWORD:-my-secret-pw}"
@@ -66,7 +66,7 @@ services:
 
   phpmyadmin:
     build:
-      context: ./docker-phpmyadmin/apache
+      context: ./phpmyadmin/apache
       dockerfile: Dockerfile
     environment:
       PMA_HOST: mariadb
@@ -95,7 +95,7 @@ services:
 
   redis:
     build:
-      context: ./docker-redis/7.2/debian
+      context: ./redis/7.2/debian
       dockerfile: Dockerfile
     # ports:
     #   - "6379:6379"
