@@ -3,11 +3,6 @@
 # # setdebug
 # set -x
 
-
-
-
-
-
 clear
 
 # # debug working pwd
@@ -48,35 +43,13 @@ echo -e "${BOLD}${YELLOW}       目前环境仅支持 Ubuntu Debian arm64 系统
 echo -e "${BOLD}${YELLOW}       amd 及其他系待测试..                                            ${RESET}"
 echo -e "${BOLD}${YELLOW}       安装完成后，再次使用命令行键入 'lnmp' 调出菜单                  ${RESET}\n"
 
-
-# 读取版本信息
-VERSION_INFO=$(cat DockerLNMP/version.json)
-
-# 从 JSON 中提取版本号
+VERSION_INFO=$(cat ./version.json)
 VERSION=$(echo $VERSION_INFO | grep -o '"version": *"[^"]*"' | awk -F'"' '{print $4}')
-
-# 输出版本信息
 echo "Version: $VERSION"
-
-# 从 JSON 中提取发布日期
 RELEASE_DATE=$(echo $VERSION_INFO | grep -o '"release_date": *"[^"]*"' | awk -F'"' '{print $4}')
-
-# 输出发布日期
 echo "Release Date: $RELEASE_DATE"
-
-# 从 JSON 中提取作者
 AUTHOR=$(echo $VERSION_INFO | grep -o '"author": *"[^"]*"' | awk -F'"' '{print $4}')
-
-# 输出作者信息
 echo "Author: $AUTHOR"
-
-
-
-
-
-
-
-
 
 # Define menu options
 options=(
