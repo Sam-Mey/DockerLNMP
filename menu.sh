@@ -41,7 +41,7 @@ echo -e "\033[96m                                                               
 echo -e "${BOLD}${YELLOW} 温馨提示                                                              ${RESET}\n"
 echo -e "${BOLD}${YELLOW}       目前环境仅支持 Ubuntu Debian arm64 系统;                        ${RESET}"
 echo -e "${BOLD}${YELLOW}       amd 及其他系待测试..                                            ${RESET}"
-echo -e "${BOLD}${YELLOW}       安装完成后，再次使用命令行键入 'dlnmp' 调出菜单                  ${RESET}\n"
+echo -e "${BOLD}${YELLOW}       安装完成后，再次使用命令行键入 'lnmp' 调出菜单                  ${RESET}\n"
 
 # Define menu options
 options=(
