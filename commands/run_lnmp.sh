@@ -31,6 +31,7 @@ chmod -R +x /DockerLNMP
 cd /DockerLNMP/lnmp
 
 # Bring up the Docker Compose environment
+# docker-compose -f docker-compose.yml up
 docker stack deploy -c docker-compose.yml lnmp-stack
 
 # Print completion message
