@@ -66,11 +66,11 @@ function show_menu() {
     echo -e "${BOLD}${BLUE}———————————————————————————————————— 主菜单 ——————————————————————————————————————${RESET}\n"
     for i in "${!options[@]}"; do
         if [[ $i -eq $(( ${#options[@]} - 3 )) ]]; then
-            echo -e "${BOLD}${RED}q. ${options[$i]}${RESET}"  # q 退出
+            echo -e "${BOLD}${RED}q. ${options[$i]}${RESET}"  # q quit
             elif [[ $i -eq $(( ${#options[@]} -2 )) ]]; then
-            echo -e "${BOLD}${GREEN}u. ${options[$i]}${RESET}"  # u 更新
+            echo -e "${BOLD}${GREEN}u. ${options[$i]}${RESET}"  # u update
             elif [[ $i -eq $(( ${#options[@]} -1 )) ]]; then
-            echo -e "${BOLD}${GRAY}d. ${options[$i]}${RESET}\n"  # d 卸载
+            echo -e "${BOLD}${GRAY}d. ${options[$i]}${RESET}\n"  # d delete
         else
             echo -e "${BOLD}${BLUE}$((i+1)). ${options[$i]}${RESET}"
         fi
