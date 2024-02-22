@@ -3,6 +3,26 @@
 # # setdebug
 # set -x
 
+#!/bin/bash
+
+# 读取版本信息
+VERSION_INFO=$(cat version.json)
+
+# 从 JSON 中提取版本号
+VERSION=$(echo $VERSION_INFO | jq -r '.version')
+
+# 输出版本信息
+echo "Version: $VERSION"
+
+# 其他操作，比如打印发布日期和作者
+RELEASE_DATE=$(echo $VERSION_INFO | jq -r '.release_date')
+AUTHOR=$(echo $VERSION_INFO | jq -r '.author')
+
+echo "Release Date: $RELEASE_DATE"
+echo "Author: $AUTHOR"
+
+
+
 clear
 
 # # debug working pwd
@@ -30,7 +50,7 @@ WHITE=$(tput setaf 7)
 
 RESET=$(tput sgr0)
 
-echo -e "\033[96m————————————————————————— Docker LNMP 网站环境 $VERSION ————————————————————————————\033[0m"
+echo -e "\033[96m————————————————————————————— Docker LNMP 网站环境 $VERSION ————————————————————————————————\033[0m"
 echo -e "\033[96m	______ _____ _____  _   __ ___________       _      _   _ ___  _________ 	\033[0m"
 echo -e "\033[96m	|  _  \  _  /  __ \| | / /|  ___| ___ \     | |    | \ | ||  \/  || ___ \	\033[0m"
 echo -e "\033[96m	| | | | | | | /  \/| |/ / | |__ | |_/ /     | |    |  \| || .  . || |_/ /	\033[0m"
@@ -55,7 +75,7 @@ options=(
 
 # Show menu
 function show_menu() {
-    echo -e "${BOLD}${BLUE}———————————————————————————————— 主菜单 ——————————————————————————————————${RESET}\n"
+    echo -e "${BOLD}${BLUE}———————————————————————————————————— 主菜单 ——————————————————————————————————————${RESET}\n"
     for i in "${!options[@]}"; do
         if [[ $i -eq $(( ${#options[@]} - 3 )) ]]; then
             echo -e "${BOLD}${RED}q. ${options[$i]}${RESET}"  # q 退出
@@ -109,10 +129,3 @@ while true; do
     show_menu
     menu_options
 done
-
-
-# 读取版本信息并使用 jq 解析 JSON 数据
-version=$(jq -r .version version.json)
-# 打印调试信息
-echo "Current version: $version"
-echo -e "${BOLD}${BLUE} ==== Current version: $version ==== ${RESET}\n"
