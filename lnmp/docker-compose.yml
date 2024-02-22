@@ -97,8 +97,8 @@ services:
     build:
       context: ./redis/7.2/debian
       dockerfile: Dockerfile
-    # ports:
-    #   - "6379:6379"
+    ports:
+      - "6379:6379"
     logging:
       driver: "json-file"
       options:
