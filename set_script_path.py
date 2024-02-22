@@ -2,13 +2,28 @@ import os
 from natsort import natsorted
 
 
-def get_sh_file_paths(directory):
+# def get_sh_file_paths(directory):
+#     sh_file_paths = []
+#     for root, dirs, files in os.walk(directory):
+#         for file in files:
+#             if file.endswith(".sh"):
+#                 rel_path = os.path.relpath(os.path.join(root, file), directory)
+#                 # 将反斜杠替换为正斜杠
+#                 rel_path = rel_path.replace("\\", "/")
+#                 sh_file_paths.append(rel_path)
+#     return sh_file_paths
+
+def get_sh_file_paths(directory, excluded_dir=None):
     sh_file_paths = []
     for root, dirs, files in os.walk(directory):
+        # 排除指定的子目录
+        if excluded_dir and excluded_dir in dirs:
+            dirs.remove(excluded_dir)
+            continue
+
         for file in files:
             if file.endswith(".sh"):
                 rel_path = os.path.relpath(os.path.join(root, file), directory)
-                # 将反斜杠替换为正斜杠
                 rel_path = rel_path.replace("\\", "/")
                 sh_file_paths.append(rel_path)
     return sh_file_paths
@@ -53,10 +68,21 @@ def write_to_config_sh(file_paths, output_file="config.sh"):
             # 开发模式请将 '# echo' 前面的 '#' 号去掉
             config_file.write(f'# echo "{script_variable}"\n')
 
+# if __name__ == "__main__":
+#     docker_lnmp_directory = os.getcwd()  # 获取当前工作目录作为 docker_lnmp 项目的路径
+#     sh_file_paths = get_sh_file_paths(docker_lnmp_directory)
+
+#     if sh_file_paths:
+#         write_to_config_sh(sh_file_paths)
+#         print("路径已写入 config.sh 文件。")
+#     else:
+#         print("未找到任何 .sh 文件。")
 
 if __name__ == "__main__":
-    docker_lnmp_directory = os.getcwd()  # 获取当前工作目录作为 docker_lnmp 项目的路径
-    sh_file_paths = get_sh_file_paths(docker_lnmp_directory)
+    docker_lnmp_directory = os.getcwd()
+    excluded_dir = "lnmp"  # 要排除的目录名
+
+    sh_file_paths = get_sh_file_paths(docker_lnmp_directory, excluded_dir)
 
     if sh_file_paths:
         write_to_config_sh(sh_file_paths)
