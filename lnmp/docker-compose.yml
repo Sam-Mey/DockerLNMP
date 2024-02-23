@@ -3,12 +3,12 @@ version: "3.8"
 services:
   nginx:
     build:
-      context: ./nginx/mainline/debian
+      context: ./nginx/docker-nginx/mainline/debian
       dockerfile: Dockerfile
     ports:
       - "80:80"
     volumes:
-      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      # - ./nginx/nginx.conf:/etc/nginx/nginx.conf
       - ./nginx/certs:/etc/nginx/certs
       - /var/www/html:/usr/share/nginx/html
     environment:
@@ -26,26 +26,9 @@ services:
     networks:
       - lnmp-network
 
-  php:
-    build:
-      context: ./php/8.3/bookworm/fpm
-      dockerfile: Dockerfile
-    volumes:
-      - /var/www/html:/var/www/html
-    logging:
-      driver: "json-file"
-      options:
-        max-size: "1M"
-        max-file: "1"
-    depends_on:
-      - mariadb
-      - redis
-    networks:
-      - lnmp-network
-
   mariadb:
     build:
-      context: ./mariadb/11.2
+      context: ./mariadb/docker-mariadb/11.2
       dockerfile: Dockerfile
     environment:
       MARIADB_ROOT_PASSWORD: "${TESTSUITE_PASSWORD:-my-secret-pw}"
@@ -70,9 +53,26 @@ services:
     networks:
       - lnmp-network
 
+  php:
+    build:
+      context: ./php/docker-php/8.3/bookworm/fpm
+      dockerfile: Dockerfile
+    volumes:
+      - /var/www/html:/var/www/html
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "1M"
+        max-file: "1"
+    depends_on:
+      - mariadb
+      - redis
+    networks:
+      - lnmp-network
+
   phpmyadmin:
     build:
-      context: ./phpmyadmin/apache
+      context: ./phpmyadmin/docker-phpmyadmin/apache
       dockerfile: Dockerfile
     environment:
       PMA_HOST: mariadb
@@ -101,7 +101,7 @@ services:
 
   redis:
     build:
-      context: ./redis/7.2/debian
+      context: ./redis/docker-redis/7.2/debian
       dockerfile: Dockerfile
     logging:
       driver: "json-file"
