@@ -8,18 +8,27 @@ git clone https://github.com/Sam-Mey/DockerLNMP.git
 # cp -r root/certs /DockerLNMP/www/server/nginx
 
 # Change directory to the  folder
-cd /DockerLNMP/lnmp
+# cd /DockerLNMP/lnmp
 
 # Clone necessary repositories
-# git clone https://github.com/nginxinc/docker-nginx.git
-# git clone https://github.com/MariaDB/mariadb-docker.git
-# mv mariadb-docker docker-mariadb
-# git clone https://github.com/docker-library/php.git
-# mv php docker-php
-# git clone https://github.com/docker-library/redis.git
-# mv redis docker-redis
-# git clone https://github.com/phpmyadmin/docker.git
-# mv docker docker-phpmyadmin
+cd /DockerLNMP/lnmp/nginx \
+    git clone https://github.com/nginxinc/docker-nginx.git
+
+cd /DockerLNMP/lnmp/mariadb \
+    git clone https://github.com/MariaDB/mariadb-docker.git \
+    mv mariadb-docker docker-mariadb
+
+cd /DockerLNMP/lnmp/php \
+    git clone https://github.com/docker-library/php.git \
+    mv php docker-php
+
+cd /DockerLNMP/lnmp/phpmyadmin \
+    git clone https://github.com/phpmyadmin/docker.git \
+    mv docker docker-phpmyadmin
+
+cd /DockerLNMP/lnmp/redis \
+    git clone https://github.com/docker-library/redis.git \
+    mv redis docker-redis
 
 # Set execute permissions for shell scripts
 find /DockerLNMP -name "*.sh" -exec chmod +x {} \;
