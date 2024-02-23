@@ -33,14 +33,17 @@ RED=$(tput setaf 1)
 CYAN=$(tput setaf 6)
 RESET=$(tput sgr0)
 
+docker_version=$(docker --version)
+compose_version=$(docker-compose --version)
+
 # 检查系统是否安装 Docker
-if ! command -v docker || ! command -v docker-compose &> /dev/null; then
+if [ -z "$docker_version" ] || [ -z "$compose_version" ]; then
     echo -e "${BOLD}${YELLOW} 未安装 Docker 现在为您安装... ${RESET}"
     # 执行 Docker 安装脚本
     "$DOCKER_SCRIPT_PATH"
 else
-    echo -e "${BOLD}${GREEN} 您已安装了 Docker 版本：(docker --version) ${RESET}"
-    echo -e "${BOLD}${GREEN} 您已安装了 Docker Compose 版本：(docker-compose --version) ${RESET}"
+    echo -e "${BOLD}${GREEN} 您已安装了 Docker 版本：$docker_version ${RESET}"
+    echo -e "${BOLD}${GREEN} 您已安装了 Docker Compose 版本：$compose_version ${RESET}"
     
     countdown 10
     "$GET_LNMP_SCRIPT_PATH"
