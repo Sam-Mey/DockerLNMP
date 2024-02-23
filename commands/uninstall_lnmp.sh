@@ -22,8 +22,8 @@ REVERSE=$(tput rev):    # 设置为反显
 RESET=$(tput sgr0)        # 重置样式
 
 # Get the IDs of all Docker containers, including stopped containers
-lnmp_allcontainer_ids=$(docker ps -a -q)
-lnmp_allimages_ids=$(docker images -q)
+lnmp_allcontainer_ids=$(docker ps -aq)
+lnmp_allimages_ids=$(docker images -aq)
 lnmp_allnetwork_ids=$(docker network ls --format="{{.ID}} {{.Name}}" | grep -v 'bridge\|host\|none' | awk '{print $1}')
 
 read -p "$(echo -e "${BOLD}${RED} 此操作仅卸载所有创建的容器、镜像、网络，并不是卸载 Docker! 是否确认卸载整个 LNMP 环境? (默认为N) | [N/y]: ${RESET}")" -i "N" answer

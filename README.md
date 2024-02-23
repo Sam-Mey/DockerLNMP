@@ -6,7 +6,7 @@
 
 ## 运行环境
 
-> Nginx 1.24
+> Nginx 1.25.4
 > MariaDB 11.2
 > PHP 8.3-fpm  
 > Redis 7.2
