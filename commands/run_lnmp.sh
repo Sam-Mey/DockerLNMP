@@ -1,9 +1,5 @@
 #!/bin/bash
 
-# Clone DockerLNMP repository
-cd /
-git clone https://github.com/Sam-Mey/DockerLNMP.git
-
 # Change directory to the DockerLNMP folder
 cd /DockerLNMP/lnmp
 
