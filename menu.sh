@@ -105,6 +105,7 @@ function menu_options() {
         D|d)
             clear
             "$UNINSTALL_SCRIPT_PATH"
+            exit 0
         ;;
         *)
             clear
