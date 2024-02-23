@@ -9,7 +9,6 @@ services:
       - "80:80"
     volumes:
       - ./nginx/vhost/default.conf:/etc/nginx/conf.d/default.conf # 局部配置
-      - ./nginx/nginx.conf:/etc/nginx/nginx.conf # 全局配置
       - ./nginx/certs:/etc/nginx/
       - /var/www/html:/usr/share/nginx/html
     environment:
