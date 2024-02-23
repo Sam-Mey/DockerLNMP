@@ -1,6 +1,6 @@
 #!/bin/bash
 
-nginx_container_id=$(docker ps -qf "name=nginx")
+nginx_container_id=$(docker ps -aqf "name=nginx")
 
 # Nginx exist ?
 if [ -n "$nginx_container_id" ]; then
