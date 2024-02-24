@@ -1,5 +1,6 @@
 #!/bash/bin
 
+# version php-alpine:3.19
 # You need to go inside the PHP container
 
 #============== Example ===================
