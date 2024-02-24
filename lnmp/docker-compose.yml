@@ -55,7 +55,7 @@ services:
 
   php:
     build:
-      context: ./php/docker-php/8.2/bookworm/fpm
+      context: ./php/docker-php/8.3/bookworm/fpm
       dockerfile: Dockerfile
     volumes:
       - /var/www/html:/var/www/html
