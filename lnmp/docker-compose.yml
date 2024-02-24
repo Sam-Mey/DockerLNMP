@@ -3,7 +3,7 @@ version: "3.8"
 services:
   nginx:
     build:
-      context: ./nginx/docker-nginx/mainline/debian
+      context: ./nginx/docker-nginx/mainline/alpine-slim
       dockerfile: Dockerfile
     ports:
       - "80:80"
