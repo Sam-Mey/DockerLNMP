@@ -19,22 +19,22 @@
 
 
 #==============Alpine Extension==================
-apk add php83-bcmath
-apk add php83-bz2
-apk add php83-cli
-apk add php83-common
-apk add php83-curl
-apk add php83-fpm
-apk add php83-gd
-apk add php83-mbstring
-apk add php83-opcache
-apk add php83-redis
-apk add php83-xml
-apk add php83-zip
+apk add php82-bcmath
+apk add php82-bz2
+apk add php82-cli
+apk add php82-common
+apk add php82-curl
+apk add php82-fpm
+apk add php82-gd
+apk add php82-mbstring
+apk add php82-opcache
+apk add php82-redis
+apk add php82-xml
+apk add php82-zip2
 
-apk add php83-igbinary # no, You need to clone the GitHub source code to compile and install
-apk add php83-mysql # no, you need replace php83-mysqli
-apk add php83-readline # no, You need to clone the GitHub source code to compile and install
-apk add php83-yaml # no, You need to clone the GitHub source code to compile and install
+apk add php82-igbinary # no, You need to clone the GitHub source code to compile and install
+apk add php82-mysql # no, you need replace php83-mysqli
+apk add php82-readline # no, You need to clone the GitHub source code to compile and install
+apk add php82-yaml # no, You need to clone the GitHub source code to compile and install
 #==============Alpine Extension==================
 

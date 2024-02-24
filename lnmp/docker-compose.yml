@@ -55,7 +55,7 @@ services:
 
   php:
     build:
-      context: ./php/docker-php/8.3/alpine3.19/fpm
+      context: ./php/docker-php/8.2/alpine3.19/fpm
       dockerfile: Dockerfile
     volumes:
       - /var/www/html:/var/www/html
