@@ -1,6 +1,6 @@
 #!/bin/bash
 
-nginx_container_id=$(docker ps -qf "name=nginx")
+nginx_container_id=$(docker ps -aqf "name=nginx")
 
 if [ -n "$nginx_container_id" ]; then
     nginx_conf_path=$(docker exec -it "$nginx_container_id" find / -name "default.conf" -print -quit | tr -d '\r')
