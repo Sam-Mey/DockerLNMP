@@ -19,21 +19,22 @@
 
 
 #==============Alpine Extension==================
-apt install php8.2-bcmath
-apt install php8.2-bz2
-apt install php8.2-cli
-apt install php8.2-common
-apt install php8.2-curl
-apt install php8.2-fpm
-apt install php8.2-gd
-apt install php8.2-igbinary
-apt install php8.2-mbstring
-apt install php8.2-mysql
-apt install php8.2-opcache
-apt install php8.2-readline
-apt install php8.2-redis
-apt install php8.2-xml
-apt install php8.2-yaml
-apt install php8.2-zip
+apt install php8.3-bcmath
+apt install php8.3-bz2
+apt install php8.3-cli
+apt install php8.3-common
+apt install php8.3-curl
+apt install php8.3-fpm
+apt install php8.3-gd
+apt install php8.3-igbinary
+apt install php8.3-mbstring
+apt install php8.3-mysql
+apt install php8.3-opcache
+apt install php8.3-readline
+apt install php8.3-redis
+apt install php8.3-xml
+apt install php8.3-yaml
+apt install php8.3-zip
 #==============Alpine Extension==================
 
+./docker-php-ext-install bcmath bz2 cli common curl fpm gd igbinary mbstring mysql opcache readline redis xml yaml zip
