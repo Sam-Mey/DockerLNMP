@@ -46,9 +46,9 @@ for container in "${containers[@]}"; do
             lnmp_containers_exist=false
         fi
     else
-        # For database containers, as long as one exists, it is marked as existing.
+        # For any other container, if it exists, set lnmp_containers_exist to false
         if docker ps -a --format '{{.Names}}' | grep -q "$container"; then
-            database_container_exist=true
+            lnmp_containers_exist=false
         fi
     fi
 done
