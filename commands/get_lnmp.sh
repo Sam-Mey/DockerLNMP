@@ -72,10 +72,17 @@ else
     fi
     echo -e "${BOLD}${YELLOW} LNMP 容器缺失: ${RESET}"
     for container in "${containers[@]}"; do
-        if ! docker ps -a --format '{{.Names}}' | grep -q "$container"; then
-            echo "${RED} - $container ${RESET}"
+        if docker ps -a --format '{{.Names}}' | grep -q "$container"; then
+            echo "${GREEN} - $container ${RESET}"
         fi
     done
+
+    # echo -e "${BOLD}${YELLOW} LNMP 容器缺失: ${RESET}"
+    # for container in "${containers[@]}"; do
+    #     if ! docker ps -a --format '{{.Names}}' | grep -q "$container"; then
+    #         echo "${RED} - $container ${RESET}"
+    #     fi
+    # done
     
     echo "${BOLD}${YELLOW} [创建 LNMP 环境] ... ${RESET}"
     
