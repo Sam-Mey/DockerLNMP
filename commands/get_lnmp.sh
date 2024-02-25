@@ -72,11 +72,13 @@ else
     fi
     echo -e "${BOLD}${YELLOW} LNMP 容器缺失: ${RESET}"
     for container in "${containers[@]}"; do
-        if docker ps -a --format '{{.Names}}' | grep -q "$container"; then
-            echo "${GREEN} - $container ${RESET}"
+        if [ "$container" != "nginx" ] && [ "$container" != "php" ] && [ "$container" != "redis" ] && [ "$container" != "phpmyadmin" ]; then
+            # For containers not "nginx", "php", "redis", or "phpmyadmin", check whether they exist
+            if ! docker ps -a --format '{{.Names}}' | grep -q "$container"; then
+                echo "${RED} - $container ${RESET}"
+            fi
         fi
     done
-
     # echo -e "${BOLD}${YELLOW} LNMP 容器缺失: ${RESET}"
     # for container in "${containers[@]}"; do
     #     if ! docker ps -a --format '{{.Names}}' | grep -q "$container"; then
