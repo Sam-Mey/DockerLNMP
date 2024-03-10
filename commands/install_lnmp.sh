@@ -48,5 +48,3 @@ else
     countdown 10
     "$GET_LNMP_SCRIPT_PATH"
 fi
-
-## docker swarm init --advertise-addr 129.154.225.43
