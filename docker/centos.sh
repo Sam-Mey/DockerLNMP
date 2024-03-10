@@ -26,8 +26,6 @@ systemctl start docker
 systemctl enable docker
 
 # Docker-compose
-countdown 3
-
 curl -fsSL https://get.docker.com | bash -s docker
 
 countdown 3
